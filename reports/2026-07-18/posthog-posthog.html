@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>PostHog/posthog｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:22px 14px 54px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:18px 2px 16px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.5); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(31px,8vw,54px); margin:14px 0 10px; }
+    .meta { color:var(--muted); line-height:1.6; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:12px; padding:10px 13px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:24px; padding:21px; margin:15px 0; box-shadow:rgba(0,0,0,.045) 0 8px 28px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:24px; line-height:1.15; font-weight:500; letter-spacing:-.02em; margin:0 0 12px; color:var(--text); }
+    p { margin:0 0 12px; color:var(--muted); line-height:1.86; font-size:15.8px; }
+    ul { margin:0 0 4px; padding-left:20px; color:var(--muted); line-height:1.82; font-size:15.8px; }
+    li { margin:7px 0; }
+    .note { border-radius:22px; padding:16px; background:#141413; color:#faf9f5; margin:18px 0 20px; }
+    .note p { color:#d7d4ca; margin:0; }
+    @media(max-width:430px) { .block { padding:18px; } h2 { font-size:22px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-18.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>PostHog/posthog</h1>
+    <div class="meta">GitHub Trending ·  · 影响分 12</div>
+    <div class="actions"><a class="btn ghost" href="https://github.com/PostHog/posthog" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p>PostHog 的核心主张是：未来的产品平台不只是“记录数据、让人分析”，而是把产品数据、用户行为、错误、日志、实验、AI 可观测性和工作流统一成一个上下文层，让 AI agent 能主动诊断问题、发现机会，并生成可审核、可合并的修复方案。它把传统产品分析工具升级成“self-driving products”的操作系统。</p></section><section class="block"><h2>2. 关键论据</h2><p>原文用三类论据支撑“自驱动产品平台”：第一，PostHog 覆盖了产品增长和工程诊断的全链路数据，包括 product analytics、web analytics、session replays、feature flags、experiments、error tracking、logs、surveys、data warehouse、data pipelines。也就是说，它不是单点分析工具，而是把用户行为、系统异常、业务收入、实验结果、外部数据和日志放到同一个上下文里。第二，它明确提出 self-driving mode：把错误、rage clicks、failed queries 等产品信号转成 researched reports 和 pull requests，由人 review 和 merge。这说明它不是只做 dashboard，而是把“发现问题—研究原因—提出修复—生成 PR”这条链路 agent 化。第三，它支持 AI observability，能捕获 LLM 应用的 traces、generations、latency、cost，这说明 PostHog 把 AI 产品本身也纳入观测对象，适合服务新一代 AI-native 产品。作者还强调 Slack、web、desktop、MCP、editor 等入口，说明它希望成为 agent 和人共同使用的产品控制台。</p></section><section class="block"><h2>3. 方法论</h2><p>作者的建设方法是“把产品运行中的所有信号汇聚成 agent 可行动的上下文”。传统 SaaS 的思路是：每个工具解决一个独立问题，例如分析归分析、日志归日志、实验归实验、错误追踪归错误追踪。但 PostHog 的思路是：用户行为、错误、会话回放、实验、feature flag、日志、数据仓库、AI 调用轨迹，本质上都是产品状态的不同侧面；只有把它们合并，agent 才能从“看见现象”走到“理解原因”，再走到“生成修复”。这里的关键不是工具堆叠，而是上下文闭环：采集信号、关联上下文、产生洞察、触发工作流、生成报告或 PR、让人审核合并。对 AI 工程尤其重要的一点是，PostHog 没有宣称让 agent 完全自动上线，而是让 agent 生成 researched reports 和 pull requests，由人 review and merge。这是一种实用的 human-in-the-loop 架构：agent 负责高频观察、归因和初稿，人负责判断、风险控制和最终合并。</p></section><section class="block"><h2>4. 金句摘录</h2><ul><li>“PostHog is the open source platform for building self-driving products.” 中文解释：PostHog 把自己定位为“构建自驱动产品的开源平台”，重点不是开源分析工具，而是产品可以依靠数据和 agent 自动发现问题、推动改进。</li><li>“captures all the context agents need to proactively diagnose problems, uncover opportunities, and ship fixes.” 中文解释：这句话非常关键，agent 真正需要的不是单一指标，而是足够完整的上下文；有了上下文，agent 才能主动诊断问题、发现机会并交付修复。</li><li>“Turn signals in your product data into researched reports and pull requests you review and merge.” 中文解释：这是 PostHog 对 agent 工作流的最清晰定义：产品信号不是停留在告警，而是被转化为研究报告和 PR；人类不是从零分析，而是审核 agent 的产物。</li><li>“You can steer it all from Slack, web, desktop, or your own editor via the MCP.” 中文解释：产品控制入口正在从单一网页控制台，扩展到 Slack、桌面端、编辑器和 MCP agent 环境；这意味着产品运营、工程修复和 agent 协作会越来越靠近工作现场。</li></ul></section><section class="block"><h2>5. 我的行动</h2><ul><li>对 deepweek 个人助手：不要只做任务提醒，而要做“个人行为信号—诊断—建议—行动”的闭环。可以采集每天任务完成情况、拖延项、目标偏离、精力状态、生活底盘事项，然后让 agent 每天生成“今天为什么推进/卡住”“明天最小修复动作”“是否需要调整本周一事”。这对应 PostHog 的 self-driving mode：把信号转成 researched report，而不是只列 todo。</li><li>对 AI Signal Radar 信息收集 agent：不要只抓新闻和仓库，而要建立“信号上下文层”。每条信息除了标题链接，还要记录来源类型、时间、热度、证据强度、重复度、与 agent 架构/AI coding/harness/skill/多 agent 的相关性、潜在影响、后续行动。然后让 agent 自动生成“入库建议”和“深读 PR”，人只 review。</li><li>对 930 前工作流全部 Agent 化：按 PostHog 的思路，先找每个工作流里的信号源，再设计 agent 可行动的输出。例如信息雷达的信号源是 RSS、GitHub、Reddit、Product Hunt；deepweek 的信号源是目标、任务、日程、完成记录；个人 IP 的信号源是选题、素材、发布数据、反馈。每个 agent 都要有一个“从信号到行动”的闭环，而不是只做总结。</li><li>对个人 IP 创建：把 PostHog 的定位方法学学过来，不要只说“做 AI 信息号”，而要说清楚自己的独特机制：我把 AI 行业信号转成中文深读、行动建议和 agent 化工作流实验。内容不只是资讯，而是“AI 工程实践者如何用 agent 改造个人生产系统”的连续记录。</li></ul></section><section class="block"><h2>6. 第一性原理</h2><p>这篇 README 背后的第一性原理是：agent 的能力上限，很大程度由上下文质量决定。没有上下文，agent 只能聊天、总结、猜测；有了产品行为、错误、日志、实验、收入、用户反馈、AI 调用轨迹等多源信号，agent 才能做诊断、归因、建议和修复。第二个底层规律是：真正有用的自动化不是直接替人做最终决策，而是把人从“搜集证据和生成初稿”中解放出来，让人只做高价值审核。PostHog 的 self-driving mode 没有说 agent 直接 merge，而是生成 researched reports 和 PR，由人 review and merge，这符合复杂系统里的安全边界。第三个规律是：现代产品平台正在从 dashboard 走向 operating loop。dashboard 的终点是“你看到了什么”，operating loop 的终点是“系统基于看到的信号推动了什么动作”。这对用户的 agent 化工作流非常关键：每个 agent 都必须回答，不只是看见什么，而是下一步自动推动什么。</p></section><section class="block"><h2>7. 真需求</h2><p>PostHog 表面上解决的是产品分析、错误追踪、实验、日志、feature flag 等工具需求，真实需求其实是：团队不想在十几个割裂工具之间手动拼接上下文，也不想每天盯 dashboard 才知道产品哪里坏了、用户哪里卡了、增长哪里有机会。产品团队真正需要的是一个能主动理解产品状态的系统：发现异常，解释原因，给出证据，提出修复，并尽量接近代码和发布流程。对 AI 产品团队来说，这个需求更强，因为 LLM 应用的问题不只来自前端和后端，还来自 prompt、模型输出、latency、cost、trace、generation 质量。PostHog 把 AI observability 放进同一个平台，说明它看见了 AI-native 产品的新痛点：如果没有统一观测，团队很难知道一次糟糕体验到底是模型问题、prompt 问题、检索问题、接口延迟问题，还是产品流程问题。</p></section><section class="block"><h2>8. 硬核保留</h2><p>以下框架是从原文方法中抽象出来的“Self-driving Agent 工作流 Checklist”：</p><ul><li>定义信号源：列出系统能捕获的关键产品信号，例如错误、rage clicks、failed queries、用户事件、日志、session replay、实验结果、LLM traces、latency、cost、用户反馈。</li><li>统一上下文：不要让信号分散在不同工具里，至少在 agent 可访问的层面统一，包括时间、用户、页面、功能、版本、实验组、错误栈、相关日志、业务指标。</li><li>设定触发条件：定义哪些信号值得 agent 主动介入，例如异常上升、关键路径转化下降、LLM 成本突增、重复错误、用户高频卡点、重要仓库突然爆发。</li><li>生成研究报告：agent 输出必须包含现象、证据、可能原因、影响范围、置信度、建议动作，而不是只报警。</li><li>连接执行系统：如果能修复，就生成 PR、issue、任务、workflow 或消息；如果不能修复，就生成下一步调查清单。</li><li>保留 human-in-the-loop：高风险动作由人 review and merge；agent 负责准备证据和初稿，人负责判断与批准。</li><li>记录结果反馈：修复后继续观察指标，判断是否真正改善，并把结果写回知识库。</li><li>逐步扩展入口：让 agent 可以从 web、Slack、desktop、editor、MCP 等用户真实工作场景进入，而不是只藏在后台。</li></ul><p>可复用 prompt：你是一个 self-driving workflow agent。请基于以下信号数据，生成一份可审核的研究报告和行动建议。必须包含：1）异常或机会是什么；2）证据来自哪些数据；3）影响范围和严重程度；4）可能原因排序；5）建议采取的最小动作；6）如果需要代码或配置修改，请生成 PR/任务草案；7）哪些地方需要人类 review；8）修复后应该追踪哪些指标。不要只总结数据，必须把信号转化为可执行动作。</p></section>
+</main>
+</body>
+</html>

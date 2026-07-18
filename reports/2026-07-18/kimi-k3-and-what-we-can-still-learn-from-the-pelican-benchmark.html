@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Kimi K3, and what we can still learn from the pelican benchmark｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:22px 14px 54px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:18px 2px 16px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.5); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(31px,8vw,54px); margin:14px 0 10px; }
+    .meta { color:var(--muted); line-height:1.6; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:12px; padding:10px 13px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:24px; padding:21px; margin:15px 0; box-shadow:rgba(0,0,0,.045) 0 8px 28px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:24px; line-height:1.15; font-weight:500; letter-spacing:-.02em; margin:0 0 12px; color:var(--text); }
+    p { margin:0 0 12px; color:var(--muted); line-height:1.86; font-size:15.8px; }
+    ul { margin:0 0 4px; padding-left:20px; color:var(--muted); line-height:1.82; font-size:15.8px; }
+    li { margin:7px 0; }
+    .note { border-radius:22px; padding:16px; background:#141413; color:#faf9f5; margin:18px 0 20px; }
+    .note p { color:#d7d4ca; margin:0; }
+    @media(max-width:430px) { .block { padding:18px; } h2 { font-size:22px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-18.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>Kimi K3, and what we can still learn from the pelican benchmark</h1>
+    <div class="meta">Simon Willison · 2026-07-16T20:19:30+00:00 · 影响分 11</div>
+    <div class="actions"><a class="btn ghost" href="https://simonwillison.net/2026/Jul/16/kimi-k3" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p>Simon 的核心主张是：Kimi K3 是一个值得关注的 2.8T 级新模型，但单个“鹈鹕骑自行车 SVG”测试已经不能代表模型真实能力，尤其无法衡量今天最重要的 agentic tool calling、长对话中的工具可靠性和复杂任务执行能力；不过，这类小测试仍然有价值，因为它能迫使研究者真正跑通模型，并快速暴露成本、reasoning token、视觉能力、SVG 输出、空间理解、API 接入体验等工程特征。</p></section><section class="block"><h2>2. 关键论据</h2><p>文章给出的关键事实有四类。第一，Kimi K3 的基本定位：Moonshot AI 宣布 Kimi K3，称其为“迄今最强模型”，拥有 2.8 万亿参数，并承诺在 2026 年 7 月 27 日前开放权重；Moonshot 将其称为首个“open 3T-class model”。第二，基准表现：官方和第三方报告显示，K3 在多个自报 benchmark 上大多超过 Claude Opus 4.8 max 和 GPT-5.5 high，但落后于 Claude Fable 5 和 GPT-5.6 Sol；Artificial Analysis 的长程知识工作评测中，K3 Elo 达到 1547，比 Kimi K2.6 高 732 分，仅次于 Claude Fable 5；Arena.ai 的 Frontend Code arena 中，K3 已超过 Claude Fable 5。第三，成本与效率：K3 定价为每百万输入 token 3 美元、输出 token 15 美元，接近 Claude Sonnet 系列，也是目前中国 AI Lab 发布过的最贵模型；作者用 OpenRouter 生成“鹈鹕骑自行车 SVG”，95 个输入 token、16658 个输出 token，其中 13241 个是 reasoning tokens，成本高达 25 美分。第四，测试局限：鹈鹕测试曾经意外地和模型能力相关，但现在相关性已经断裂，例如 GPT-5.6 和 Claude Fable 5 的鹈鹕图不如 GLM-5.2，但作者并不认为 GLM-5.2 是 Fable 级别模型；更重要的是，这个测试完全没有触及现代模型最关键的能力：agentic tool calling，以及随着对话变长仍能可靠操作工具的能力。</p></section><section class="block"><h2>3. 方法论</h2><p>作者的方法不是只看排行榜，而是把 benchmark 当作“上手验证的入口”。他的流程可以拆成五步：第一，先收集公开信息，包括参数规模、开放权重承诺、API 可用性、官方 benchmark、第三方评测、价格。第二，实际调用模型，而不是停留在新闻层面；如果有官方 API 就用官方 API，如果是开源权重且本地机器能跑，就用 llama.cpp、LM Studio 或 Ollama，如果不想注册新 API key，就通过 OpenRouter 代理调用。第三，用一个固定、低门槛、可长期对比的 prompt 做 hello world，例如“Generate an SVG of a pelican riding a bicycle”。第四，记录工程指标：输入 token 计数、输出 token 数、reasoning token 数、总成本、是否能输出有效 SVG、几何和空间理解是否稳定、是否支持视觉输入、不同 reasoning effort 对结果和成本的影响。第五，把这个小测试放回正确位置：它不能作为模型综合能力排名，不能替代 agent 工具调用、长上下文可靠性、复杂任务完成率评测，但能作为快速接入、成本感知、能力嗅探和同家族版本对比工具。</p></section><section class="block"><h2>4. 金句摘录</h2><ul><li>“The biggest limitation of the pelican is that it doesn’t touch at all on the thing that matters most for today’s model: agentic tool calling and the ability to operate tools reliably as conversations grow in length.” 中文解释：鹈鹕测试最大的局限，是它完全没有测到今天模型最关键的能力：智能体式工具调用，以及在对话不断变长时仍然可靠操作工具的能力。这句话对 agent 架构尤其重要，说明未来模型评估的核心不只是输出质量，而是长链路、工具、状态和可靠性。2. “So don’t go using pelicans to compare models!” 中文解释：不要用鹈鹕图来比较模型强弱。作者明确反对把一个玩笑式测试过度解释为排行榜。3. “Firstly, it’s a forcing function for actually trying the model.” 中文解释：这个测试首先是一个强制自己真正试用模型的机制。这里的重点不是鹈鹕，而是“forcing function”：设计一个简单仪式，逼自己从阅读新闻进入实际调用。4. “A rough cost and reasoning estimate for a simple task.” 中文解释：即使是简单任务，也可以粗略估计模型成本和 reasoning 消耗。对 AI 工程而言，这比单纯看模型宣传更有价值。5. “It’s still interesting to compare pelicans between releases in the same model family.” 中文解释：跨模型横评不可靠，但同一家族不同版本之间的固定测试仍然有参考价值。</li></ul></section><section class="block"><h2>5. 我的行动</h2><p>对 deepweek 个人助手、AI Signal Radar 信息收集 agent、930 前工作流全部 Agent 化和个人 IP 创建，最可执行的启发有四点。第一，为每个 agent 建立自己的“鹈鹕测试”，不是为了排名，而是作为 hello world 和回归测试。例如 deepweek 的 hello world 可以是：输入本周目标、长期目标、生活底盘事项，输出“今日上分 / 别掉血”并解释排序理由；AI Signal Radar 的 hello world 可以是：输入 5 条候选新闻，输出最近 3 个月过滤、影响力评分拆解、入库/观察/丢弃判断。第二，每次替换模型或新增模型时，不要只看 benchmark，要真实跑一遍工作流，并记录：输入 token、输出 token、reasoning token、成本、延迟、工具调用成功率、是否稳定遵守 JSON/schema、长对话下是否遗忘规则。第三，针对 930 前工作流全部 Agent 化，优先补齐作者指出的关键评估缺口：agentic tool calling 和长对话工具可靠性。也就是说，不只测试模型会不会写摘要，还要测试它能不能连续完成“抓取→过滤→评分→去重→生成深读页→发布 GitHub Pages→生成微信摘要”这一串工具链。第四，个人 IP 内容可以借鉴 Simon 的写法：不要只转述模型发布，而是用一个固定、可重复的小实验展示“我真的试过了”，再讲清楚这个实验能说明什么、不能说明什么。这样内容会更可信，也更容易形成个人风格。</p></section><section class="block"><h2>6. 第一性原理</h2><p>作者的底层原则是：模型评估的目标不是制造一个看起来客观的分数，而是降低真实使用中的不确定性。排行榜、参数规模、价格、样例图都只是局部信号，真正重要的是模型在你的实际工作链路中是否可靠、可控、可支付、可复现。由此可以推出三个第一性原理。第一，评估必须从真实使用出发：如果一个模型没有被你实际调用过，它对你的工程系统来说还只是新闻，不是能力。第二，固定小测试的价值不在于“准确排名”，而在于建立可重复观察点，让你能感知接入成本、输出形态、token 行为、reasoning 开销和版本变化。第三，现代模型的核心能力正在从“单轮生成质量”转向“长程任务执行可靠性”，尤其是工具调用、状态保持、上下文压缩、多步纠错和成本控制。因此，任何不触及工具使用和长对话稳定性的 benchmark，都只能作为边缘信号，而不能作为选型依据。</p></section><section class="block"><h2>7. 真需求</h2><p>文章表面是在讨论 Kimi K3 和鹈鹕 benchmark，真实需求其实是：当新模型越来越多、宣传越来越强、benchmark 越来越复杂时，个人开发者和 AI 工程师需要一套轻量但真实的模型试用机制，帮助自己快速判断“这个模型对我的工作有没有用”。Simon 不是要证明鹈鹕测试很强，而是在解决三个实际痛点。第一，新模型发布太频繁，如果每次都完整评测会成本很高，所以需要一个低成本、固定、可复用的上手动作。第二，公开 benchmark 容易误导，尤其当它没有覆盖 agentic tool calling、长上下文和工具可靠性时，不能反映真实 agent 系统表现。第三，模型成本和 token 行为越来越重要，Kimi K3 这个例子显示，一个看似简单的 SVG prompt 也可能因为 max reasoning 消耗 13241 个 reasoning tokens，导致单次成本达到 25 美分；这对生产系统和个人 agent 都是必须提前发现的问题。真正需求不是“画好鹈鹕”，而是“用一个足够小的探针，尽快暴露模型在真实工程使用中的关键风险”。</p></section><section class="block"><h2>8. 硬核保留</h2><p>以下是从原文方法中抽象出的可复用框架，并非作者逐字给出。模型上手评估 Checklist：1. 基础信息：模型名称、发布方、参数规模、是否开放权重、开放时间、API 是否可用、上下文长度、是否支持视觉/工具调用。2. 价格信息：每百万输入 token 价格、每百万输出 token 价格、reasoning token 是否计费、一次典型任务总成本。3. Hello world prompt：选择一个固定小任务，长期复用，不追求全面，只用于确认模型可调用、可观察、可对比。原文示例 prompt：Generate an SVG of a pelican riding a bicycle。4. 输出有效性：是否遵守格式、是否能生成有效 SVG/JSON/代码、是否存在明显空间理解错误。5. Token 行为：记录输入 token、输出 token、reasoning token；如果输入 token 异常偏高，检查是否存在隐藏 system prompt 或平台包装开销。6. Effort 档位：如果模型支持不同 thinking/reasoning effort，用同一 prompt 分别跑 low/medium/high/max，比较质量、成本、延迟。7. 多模态回环：如果模型支持图像输入，把它自己的输出渲染后再让模型描述，检查视觉理解是否可靠。8. Agent 专项评估：必须额外测试工具调用成功率、多步任务完成率、长对话后工具可靠性、schema 遵守、错误恢复、上下文遗忘。9. 同家族纵向对比：固定 prompt 更适合同一模型家族不同版本之间对比，而不适合作为跨厂商最终排名。10. 记录模板：模型 / 日期 / 调用方式 / prompt / 输入 token / 输出 token / reasoning token / 成本 / 延迟 / 是否成功 / 失败类型 / 适合场景 / 不适合场景。可直接用于你的 agent 测试 prompt：你是一个待评估模型，请完成以下固定任务：[填入 deepweek 或 AI Signal Radar 的 hello world 任务]。必须输出指定 JSON schema，不得解释。随后记录工具调用、token、成本、格式遵守、任务完成质量和错误恢复表现。</p></section>
+</main>
+</body>
+</html>
