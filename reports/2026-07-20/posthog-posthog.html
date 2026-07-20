@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>PostHog/posthog｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 12px; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-20.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>PostHog/posthog</h1>
+    <div class="meta">GitHub Trending ·  · 影响分 12</div>
+    <div class="actions"><a class="btn ghost" href="https://github.com/PostHog/posthog" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">PostHog 不再只把自己定义为产品分析平台，而是“构建自驱产品的开源平台”。其关键变化是把事件分析、会话回放、错误、日志、实验、用户反馈、数据仓库、LLM 链路等能力统一起来，使 Agent 同时获得三类条件：</p><ul class="points"><li>第一，完整上下文，包括用户行为、错误、卡顿、失败查询、收入与外部业务数据</li><li>第二，诊断能力，把异常信号研究成问题报告</li><li>第三，执行能力，生成修复代码和 Pull Request，交给人审查合并。若用 harness 视角理解，PostHog 正在把自身变成产品 Agent 的数据与工具 harness：负责持续采集环境状态、提供可查询上下文、暴露 MCP 等操作接口，并保留人工审批这一关键控制点。</li></ul></section><section class="block"><h2>2. 关键论据</h2><p class="lead">原文给出的支撑主要有四层。其一，信号来源足够广：事件分析和 Web 分析用于识别行为与转化问题，会话回放用于还原真实操作过程，错误跟踪和日志用于定位技术故障，调查问卷补充用户主观反馈，实验衡量改动的统计效果。</p><p>其二，数据能够关联：外部的 Stripe、HubSpot 和数据仓库数据可以与产品数据一起查询，数据管道还能过滤、转换和分发数据，避免 Agent 只看单一系统的局部事实。其三，AI 系统本身也进入可观测范围：平台可以采集 LLM 应用的 trace、generation、延迟与成本，让 AI 产品的质量和资源消耗成为可诊断信号。</p><p>其四，结果可以进入工程执行：自驱模式会把错误、愤怒点击、失败查询等信号转成经过研究的报告和 Pull Request，但最终仍由人审查与合并。原文还说明平台可从 Slack、网页、桌面端、PostHog Code 或 MCP 兼容编辑器操控，这使同一能力能够进入不同工作入口。</p></section><section class="block"><h2>3. 方法论</h2><p class="lead">可以从原文归纳出一条产品 Agent 方法链。第一步是全面采集：自动捕获或手动埋点用户事件，同时收集会话、错误、日志、问卷、业务数据以及 LLM trace。第二步是关联上下文：把行为数据、技术数据、商业数据和用户反馈放在同一查询面中，允许可视化或 SQL 分析。第三步是将原始数据转成可操作信号，例如错误、愤怒点击、查询失败、转化下降和性能异常。</p><p>第四步是由 Agent 研究信号，而不是看到告警就直接改代码；研究产物首先是包含证据的报告。第五步是生成修复方案或 Pull Request，把分析推进到可执行结果。第六步保留人类门禁，由人审核和合并，降低误修风险。第七步利用功能开关和实验灰度发布，再通过目标指标验证统计影响。第八步把上线后的新数据重新送回系统，形成下一轮 loop。</p><p>这里真正重要的 Agent 架构原则是：感知、分析、行动和评估使用同一套产品上下文，避免多个工具之间的信息断裂。</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">“PostHog is the open source platform for building self-driving products.”——PostHog 是用于构建自驱产品的开源平台；这句话表明其定位已经从单点分析工具转向产品运行闭环的基础设施。</p><p>“captures all the context agents need to proactively diagnose problems, uncover opportunities, and ship fixes”——捕获 Agent 主动诊断问题、发现机会并交付修复所需的全部上下文；</p><p>关键不在模型本身，而在 Agent 是否拥有足够完整、连续且可行动的环境信息。</p><p>“Turn signals in your product data ... into researched reports and pull requests you review and merge.”——把产品数据中的信号转成经过研究的报告和 Pull Request，再由你审核合并；这明确体现了 Agent 执行与人工门禁结合的协作方式。</p><p>“You can steer it all from Slack, web, desktop ... or your own editor via the MCP.”——可以从 Slack、网页、桌面端或通过 MCP 在自己的编辑器中操控全部能力；Agent 不必强迫用户迁移入口，而应嵌入用户已有工作流。</p></section><section class="block"><h2>5. 我的行动</h2><p class="lead">一、Deepweek 个人助手：不要只做待办对话框，应记录任务完成、延期、反复改期、每日阅读、生活底盘事项和用户反馈等事件；先定义“连续延期”“本周核心事项停滞”“生活底盘掉血”等信号，再由 Agent 输出原因报告和次日排序建议。对自动改计划设置人工确认，执行后用本周目标完成率验证效果。</p><p>二、AI Signal Radar：把抓取、时间过滤、去重、影响力评分、正式入库、深读页生成和推送都设计成可观测事件；为每篇内容保留来源证据、过滤原因、各维度评分和 Agent 决策轨迹。当出现来源抓取骤降、重复率异常、过期文章混入或高分内容未入库时，让 Agent 主动生成诊断报告和修复 PR，而不是只发失败告警。</p><p>三、930 前工作流全部 Agent 化：先建设统一 harness，至少包含事件模型、上下文存储、工具权限、MCP 接口、trace、成本与延迟监控、人工审批点和效果评估；然后逐条工作流接入，避免为每个 Agent 重复搭建一套孤立基础设施。四、个人 IP：把选题、深读、内容改写、发布、点击、收藏、评论和转化串成闭环；</p><p>Agent 根据真实反馈提出下一批选题与内容修改，但发布前由人审核。可使用功能开关或小范围渠道测试不同标题和表达，再依据结果扩大分发。五、近期最小落地：优先让 AI Signal Radar 的一次异常能够自动完成“发现信号→检索证据→定位相关代码→生成报告和 PR→人工审核→运行验证”，以此作为工作流 Agent 化的首个可验收样板。</p></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">从第一性原理看，模型只提供推理与生成能力，并天然缺少产品现场。要让 Agent 对产品负责，必须补齐五个基本条件：可感知，能看到用户行为、系统错误、日志、业务结果和 AI 调用轨迹；可解释，能把异常与具体会话、代码或数据关联起来；可行动，能调用工作流、编辑器或 MCP 工具生成实际变更；可约束，高风险变更必须经过人类审核或权限控制；</p><p>可验证，借助实验、功能开关和目标指标判断修复是否真的有效。因此，竞争壁垒不只是更强的新模型，而是高质量上下文、稳定工具接口、可靠权限边界和持续评估 loop。PostHog 把多类数据集中在同一平台，正是在降低 Agent 从观察到行动之间的上下文损耗。</p></section><section class="block"><h2>7. 真需求</h2><p class="lead">表层需求是产品分析、会话回放、错误跟踪、日志、实验、问卷或 AI 可观测；深层需求则是回答并执行一组连续问题：哪里出问题了，影响了哪些用户，背后的技术原因是什么，是否影响转化或收入，应该改什么，改动有没有带来统计上可信的改善。过去这些信息散落在 GA、日志平台、错误平台、数仓、CRM 和代码仓库中，人需要手工拼接。</p><p>PostHog 试图通过统一数据和 Agent 上下文消除这段人工搬运。对 Agent 使用者而言，真正稀缺的也不是又一个聊天入口，而是能接入 Slack、编辑器和 MCP 的可信执行能力，以及“报告和 PR 由人审核合并”的责任边界。原文同时暴露了现实限制：开源自托管 hobby 部署约面向每月十万事件规模，官方不提供支持或保证；</p><p>更大规模被建议迁移云服务，因此开源、可控、规模化和服务保障之间仍需做取舍。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">以下是根据原文方法抽象的“自驱 Agent Harness Checklist”，并非原文逐字提供：</p><ul class="points"><li>定义目标：明确 Agent 要改善的业务或产品指标，禁止仅以“任务执行成功”作为最终指标。</li><li>建立信号：列出行为信号、技术信号、业务信号和主观反馈，如失败、异常、停滞、成本增加或负面反馈。</li><li>保留上下文：每个信号关联时间、用户或对象、原始证据、会话、日志、相关代码、历史变更和业务影响。</li><li>统一查询：让 Agent 能通过结构化查询、SQL 或工具接口联合检索多个数据域，而不是依赖复制粘贴。</li><li>先研究后行动：要求 Agent 先输出问题定义、证据、影响范围、候选根因、置信度和反证，再提出修改。</li><li>生成可审查产物：优先产出报告、diff、PR、计划变更或待发送消息，不直接执行不可逆操作。</li><li>设置门禁：按风险分级；低风险自动执行，中风险需确认，高风险必须由指定人员审核。</li><li>渐进发布：通过功能开关、小流量试运行或限定对象控制影响范围。</li><li>验证效果：事先定义成功指标、观察窗口和回滚条件，执行后比较目标指标与副作用。</li><li>闭环学习：把审核意见、执行结果、失败原因、成本和延迟写回上下文，供下一轮 Agent 决策使用。可复用 Prompt（基于原文抽象）： “你是一个受控的产品诊断 Agent。输入包括行为事件、会话记录、错误、日志、业务数据、用户反馈、AI trace 和相关代码。请先识别异常信号，再完成：①问题定义；②原始证据；③影响对象与业务影响；</li></ul><p>④最可能的三个根因及置信度；⑤需要补充的证据；⑥最小修复方案；⑦风险与回滚条件；⑧验证指标和观察周期；⑨可审查的代码 diff 或工作流变更。证据不足时不得直接修改；高风险操作只生成提案，不得执行。输出必须让审核者能够追溯每个结论对应的信号和证据。”</p></section>
+</main>
+</body>
+</html>

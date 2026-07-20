@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bringing Claude Code and Claude Cowork to government｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 12px; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-20.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>Bringing Claude Code and Claude Cowork to government</h1>
+    <div class="meta">Claude Blog · Jul 07, 2026 · 影响分 11</div>
+    <div class="actions"><a class="btn ghost" href="https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">Anthropic 将 Claude Code 和 Claude Cowork 集成到 Claude for Government Desktop，并通过 FedRAMP High 授权环境交付。Claude Code 面向公共部门的软件建设与遗留系统现代化；</p><p>Claude Cowork 则直接操作桌面文件，让工作人员委托它完成备忘录、RFP 审查、案件材料处理和演示文稿制作。</p><p>真正构成产品壁垒的并非单一 Agent 功能，而是一整套政府级 harness：推理环境受控、对话历史保存在机构管理的本地设备、配置可以分层继承、模型和连接器可以按组织限制、预算能够硬封顶、操作进入防篡改审计链，并提供 ATO、渗透测试和安全配置材料。文章展示的是一种“能力与治理同步交付”的 AI 工程路线。</p></section><section class="block"><h2>2. 关键论据</h2><p class="lead">第一，任务价值明确：Claude Code 可以建设和现代化支撑公共服务的软件系统，Claude Cowork 可以基于桌面文件承担备忘录生成、RFP 审查、案件处理和制作演示文稿等工作。</p><ul class="points"><li>第二，能力更新不因政府环境而长期滞后，政府机构可以按照与商业用户相同的节奏获得新能力。</li><li>第三，数据边界清晰：对话历史保存在机构管理的设备上，推理发生在 FedRAMP High 授权环境中。</li><li>第四，经费管理适配政府拨款制度：既可以购买标准席位，也可以自定义带有消费额度和模型限制的席位层级；用量按固定增量购买，并设置不可突破的最高支出上限；系统还能按用户、按模型跟踪用量并发送余额消耗预警。</li><li>第五，组织管理符合部门层级：上级部门可向下属机构分配席位和预付用量，同时允许下属机构独立管理用户；SCIM 组映射可以控制速率、金额上限和允许使用的模型。</li><li>第六，监督机制嵌入产品：所有管理操作写入哈希链审计日志，Anthropic 一侧的敏感操作需要双人批准，对外导出的仅是计量数据，从而响应 ATO 和监察请求而不搬运敏感内容。</li><li>第七，部署与采购阻力被降低：应用可通过标准 MDM 平台部署，Anthropic 直接承担合同与计费，机构不必额外建立云服务商关系。</li></ul></section><section class="block"><h2>3. 方法论</h2><p class="lead">这套方法可以还原为六层。第一层是任务层：把 Claude Code 对应到软件建设与迁移，把 Claude Cowork 对应到文件型知识工作，先明确 Agent 实际代理什么任务。第二层是运行层：规定推理在哪里发生、会话保存在哪里，以及应用如何通过机构设备管理系统部署。</p><p>第三层是能力层：按席位或用户组限制模型、速率、连接器和可用功能，并通过分层配置给下属组织设置默认值和交互指令。第四层是经济层：把 Agent 用量映射到拨款、部门和用户，采用预付额度、固定增量、硬上限和余额预警，避免自主执行带来无边界成本。第五层是监督层：使用哈希链记录管理动作，对平台方敏感操作实行双人审批，导出满足监管所需的最小化计量数据。</p><p>第六层是授权层：用安全配置指南、正式变更通知、渗透测试摘要和 FedRAMP 环境支撑 ATO。对 Agent 架构的启示是：loop 不能只有“模型—工具—结果”，还应包含任务授权、配置解析、预算检查、敏感操作审批、执行、计量和审计等控制节点。</p><p>文章没有展开 skill 或多 Agent 协作协议，但它清楚说明了这些能力进入组织后必须服从统一的权限、成本和审计平面。</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">“Oversight by design.”——“监督必须在设计阶段就成为系统组成部分。”这句话最能概括全文：审计、审批和最小化导出不是部署后的补丁，而是 Agent harness 的基础能力。</p><p>“Agencies get new capabilities on the same cadence as our commercial users.”——“政府机构能够按照与商业用户相同的节奏获得新能力。”它强调合规环境不应等同于能力停滞，工程目标是同时维持快速迭代与受控交付。</p><p>“Conversation history is stored locally on the agency-managed device. Inference runs inside a FedRAMP High authorized environment.”——“会话历史保存在机构管理的本地设备上，推理运行于 FedRAMP High 授权环境。</p><p>”这给出了清晰的数据与计算边界。“Usage exports are metering data only so agencies can answer ATO and IG requests without moving sensitive material.”——“用量导出仅包含计量数据，使机构无需搬运敏感材料也能回应 ATO 和监察要求。</p><p>”其核心是数据最小化：监督系统只收集完成监督所必需的信息。“Sensitive operations on Anthropic&#x27;s side require two-person approval.”——“Anthropic 一侧的敏感操作需要双人批准。”这说明高风险 Agent 操作不能只依赖单个管理员或一次模型判断。</p></section><section class="block"><h2>5. 我的行动</h2><p class="lead">一、为 deepweek 增加“分层配置”：全局层保存“930 前工作流全部 Agent 化”和“930 前创建个人 IP”，周级层保存本周一事，日级层只生成“今日上分／别掉血”；下层可以细化任务，但不能覆盖长期目标、家庭事项和高风险操作规则。二、给 deepweek 的执行 loop 加预算与审批：读取和排序事项可自动执行；</p><p>修改长期目标、删除事项、对外发送消息、创建付费服务必须进入人工确认；每次执行记录输入、采用的规则、工具调用、结果和失败原因。三、为 AI Signal Radar 建立类似计量数据的最小审计表，只记录来源、抓取时间、过滤阶段、评分维度、模型、token／费用、入库决定和内容哈希，不在审计导出中重复保存敏感全文；同时设置每日调用额度、单源额度和硬性费用上限。</p><p>四、把 Radar 的来源配置做成组织式分层：全局规则限定最近三个月、高影响、非重复、非已知；Reddit、Product Hunt、GitHub 各自拥有独立的 skill、速率限制和输出约束；单个来源不能自行放宽全局入库门槛。</p><p>五、为个人 IP 创建独立发布 Agent：素材收集和草稿生成可以自动完成，事实核验、隐私检查、平台适配和最终发布必须分阶段留痕，发布动作采用人工批准。六、在 930 前统一三个 Agent 的治理接口：配置版本、允许工具、模型选择、费用上限、审批点、审计日志、运行状态和失败告警；这比继续堆叠孤立 prompt 更接近真正的工作流 Agent 化。</p></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">从第一性原理看，模型能力不是完整产品。一个 Agent 要产生实际结果，必须接触文件、代码、用户、连接器和预算；一旦接触这些资源，就会产生泄露、误操作、超支和责任不清等风险。因此，可靠 Agent 的最小结构应是“智能能力 × 可用上下文 × 工具权限 × 约束系统 × 可验证记录”。其中任意一项为零，系统都无法稳定进入生产环境。</p><p>文章里的本地会话存储和授权推理环境解决数据边界；席位层级、模型限制与连接器默认值解决权限边界；预付用量、固定增量和硬上限解决经济边界；哈希链日志、双人审批和安全文档解决责任边界。哈希链并不保证行为本身正确，但能提高事后篡改记录的难度；双人批准也不保证零风险，却能消除单点授权。</p><p>由此可推导：多 Agent 协作不应只设计角色和消息流，还必须规定每个 Agent 能看什么、能调用什么、最多消耗多少、何时转交人工、由谁承担最终责任。</p></section><section class="block"><h2>7. 真需求</h2><p class="lead">表层需求是写备忘录、审 RFP、处理案件文件和改造软件；深层需求则是让这些能力通过现有组织结构进入生产。</p><p>项目办公室需要将 AI 支出对应到拨款并确保不超支，部门管理员需要向下级机构分配资源但保留治理权，安全团队需要证明推理与数据存储满足边界要求，授权官员需要完成 ATO，监察机构需要获得可核验记录而不接触额外敏感内容，IT 团队需要通过现有 MDM 部署应用，采购部门则希望减少额外云合同关系。</p><p>Anthropic 因而交付的不是单一 Agent，而是一套降低授权摩擦和组织协调成本的基础设施。对个人 Agent 同样如此：真正需求不是“让 AI 多做几个任务”，而是让自动化不会偏离目标、泄露隐私、无限消耗预算或在无人知情时对外行动，并且出现问题时可以重建完整决策链。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">以下并非原文直接给出的 prompt，而是依据文章呈现的方法抽象。 Agent 生产化 Checklist：</p><ul class="points"><li>任务：Agent 代理的具体工作是什么？输入、输出和完成标准是什么？</li><li>数据：会话、文件、凭证和中间结果分别保存在哪里？哪些数据禁止离开本地或指定环境？</li><li>推理：允许调用哪些模型和运行环境？模型降级或切换规则是什么？</li><li>工具：允许连接哪些系统？默认拒绝还是默认允许？读、写、删除、发布权限是否分离？</li><li>分层配置：全局、团队、Agent、用户四层配置如何继承？下层能否覆盖安全规则？</li><li>预算：是否按 Agent、用户、模型和任务计量？是否设置速率限制、费用上限和余额预警？硬上限能否真正阻断执行？</li><li>审批：删除、付费、发布、权限变更和敏感数据访问是否需要人工或双人批准？</li><li>审计：是否记录配置变更、管理动作、模型、工具调用、费用与结果？日志能否检测篡改？</li><li>最小披露：监督报表能否只导出计量和决策元数据，而不复制敏感正文？</li><li>上线证据：是否具备安全配置说明、变更记录、测试结果、回滚方案和责任人？可复用架构 loop：接收任务 → 解析当前层级配置 → 校验数据与工具权限 → 估算并检查预算 → 判断是否触发人工审批 → 执行模型与工具调用 → 保存结果 → 写入防篡改审计记录 → 更新用量 → 触发余额、异常或失败告警。</li></ul><p>可复用评审 prompt： “你是 Agent 上线审查员。请针对下面的 Agent 设计，分别审查任务边界、数据位置、推理环境、工具权限、分层配置、模型限制、费用硬上限、人工审批点、审计完整性、最小化导出、部署方式和回滚机制。对每一项输出：现状、风险、缺失证据、必须修改项、可接受的剩余风险。</p><p>不得以‘已有日志’代替防篡改说明，不得以‘设置预算’代替不可突破的硬上限，不得以‘人工参与’代替明确的审批触发条件。最后给出上线／限流试运行／拒绝上线三选一结论。”</p></section>
+</main>
+</body>
+</html>
