@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bringing Claude Code and Claude Cowork to government｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 12px; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-21.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>Bringing Claude Code and Claude Cowork to government</h1>
+    <div class="meta">Claude Blog · Jul 07, 2026 · 影响分 11</div>
+    <div class="actions"><a class="btn ghost" href="https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">Anthropic 的核心主张是：面向政府机构落地 AI，不只是把 Claude Code 和 Claude Cowork 接入桌面端，而是把“AI 编程、AI 协作、预算控制、组织分权、安全审计、合规授权”打包成一个可采购、可授权、可分配、可监管的完整工作流基础设施。</p><p>文章真正强调的不是某个模型能力提升，而是 AI Agent 要进入严肃组织，必须同时满足任务能力、治理能力、财务边界、权限分层和审计可追溯。Claude Code 负责软件系统建设和现代化，Claude Cowork 负责桌面文件协作与办公任务代理；</p><p>两者都运行在 FedRAMP High 授权环境中，并配套本地会话历史、哈希链审计日志、两人审批、MDM 部署、ATO 支持文档和预算硬上限。</p></section><section class="block"><h2>2. 关键论据</h2><p class="lead">作者用四组机制证明 Claude for Government 不是普通 SaaS 套壳。</p><ul class="points"><li>第一，能力层：Claude Code 可以帮助公共部门建设和现代化支撑公共服务的软件系统；Claude Cowork 可以直接处理桌面文件，让机构人员把 memo 创建、RFP 审查、casework、deck 制作等任务委托给 Claude。</li><li>第二，安全层：推理运行在 FedRAMP High 授权环境中，会话历史存储在机构管理的本地设备上，桌面客户端还有渗透测试摘要和安全配置指南。</li><li>第三，治理层：管理员可以设置配置默认值、按部门分配座席和预付额度、控制模型和功能权限，并通过 SCIM group mappings 对不同席位层设置速率限制、美元上限和可用模型。</li><li>第四，审计层：所有管理动作进入 hash-chained audit log，Anthropic 侧敏感操作需要 two-person approval，使用导出只包含 metering data，避免为了审计而搬运敏感内容。这些机制共同说明：政府 AI 的关键不是“能不能用”，而是“能不能在复杂组织里安全、可控、可证明地持续使用”。</li></ul></section><section class="block"><h2>3. 方法论</h2><p class="lead">这篇文章体现的是一种“高约束场景下的 Agent 产品化方法”。第一步不是先展示炫技能力，而是选定政府这种监管强、预算严格、组织层级复杂、审计要求高的场景。第二步把 Agent 能力拆成两类：Claude Code 对应工程型 Agent，面向代码建设、系统现代化和软件交付；</p><p>Claude Cowork 对应办公型 Agent，面向文件、报告、采购、案件和演示材料。第三步把 Agent 放进既有组织结构，而不是要求组织迁就 AI：部门管理员可以向下级机构分配资源，下级机构继续管理自己的用户。第四步把预算设计成硬边界：固定额度、不可超支上限、余额预警、按用户和模型追踪。</p><p>第五步把安全和合规做成产品内置能力：本地存储会话历史、FedRAMP 环境推理、哈希链审计、ATO 支持、MDM 部署、渗透测试材料。这里的方法论对 Agent 架构很重要：真正能规模化的 Agent，不只是 loop、tool use、memory、multi-agent，而是必须有组织权限、成本控制、审计日志和默认配置这些“运行时治理层”。</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">1. “Today’s launch makes it easier for agencies to acquire, authorize, and allocate AI in pursuit of their missions.” 中文解释：作者把政府采用 AI 的核心障碍概括为 acquire、authorize、allocate 三件事，即采购、授权、分配。</p><ul class="points"><li>“Oversight by design.” 中文解释：监督不是事后补丁，而是产品设计的一部分。对 Agent 系统尤其关键，因为 Agent 一旦具备执行能力，就必须默认可观测、可追溯、可限制。</li><li>“Usage exports are metering data only so agencies can answer ATO and IG requests without moving sensitive material.” 中文解释：审计需要数据，但不能为了审计而暴露敏感内容。这里体现了一个很硬核的设计原则：把计量数据和业务内容分离。</li><li>“Conversation history is stored locally on the agency-managed device. Inference runs inside a FedRAMP High authorized environment.” 中文解释：数据驻留和推理环境被明确拆开处理，本地保存历史、合规环境推理，说明 AI 桌面产品也要有清晰的数据边界。</li></ul><p>对企业 Agent 落地也一样，真正的瓶颈往往不是模型会不会做任务，而是组织能不能合法买、合规批、合理分。</p></section><section class="block"><h2>5. 我的行动</h2><p class="lead">对 deepweek 个人助手：不能只做一个能列待办的 Agent，要补上“治理层”。本周可以加三个能力：任务变更日志、每日预算/精力消耗记录、不同事项类别的默认规则。例如“今日上分”默认优先 930 前 Agent 化和个人 IP，“别掉血”默认不挤占核心创造时间但必须兜底生活底盘。</p><p>对 AI Signal Radar 信息收集 agent：要学习 Anthropic 的 metering data 思路，把抓取内容和审计指标分离。每日输出不仅给精选文章，还要记录原始抓取数、三个月过滤后数量、影响力筛选数量、正式入库数量、丢弃原因和每个来源的消耗。</p><p>对 930 前工作流全部 Agent 化：不要只追求更多 agent，而要建立“Agent 管理后台”的雏形，包括每个 agent 的权限、预算、模型、运行频率、输入输出目录、失败重试、审计日志。对个人 IP 创建：可以把这篇文章抽象成一篇内容选题：《为什么真正的 AI Agent 落地不是 Prompt，而是治理系统》。</p><p>切入点是：政府场景暴露了 Agent 产品化的终局要求，普通个人和小团队也应该提前建立权限、成本、审计和默认流程。</p></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">第一性原理是：AI Agent 一旦从“回答问题”进入“替人完成工作”，它就不再只是智能工具，而是组织运行的一部分；因此必须像员工、系统和预算一样被管理。政府场景只是把这个问题放大了：谁能用、能用多少钱、能用哪个模型、能连接什么、执行过什么管理动作、是否可以被审计、是否支持授权流程。这些不是边缘功能，而是 Agent 能否进入生产环境的基础条件。</p><p>Claude Code 和 Claude Cowork 的价值不只在于会写代码、会处理文件，而在于它们被放入了一个可授权、可限制、可追踪、可分摊成本的组织框架中。从 Agent 架构看，模型能力是执行层，文件/代码/桌面是工作层，预算/权限/审计/配置是控制层。没有控制层，Agent 只能做演示；有控制层，Agent 才能变成组织基础设施。</p></section><section class="block"><h2>7. 真需求</h2><p class="lead">政府机构的真需求不是“给我一个更聪明的聊天机器人”，而是“让我能在不破坏现有合规、预算、组织和安全体系的前提下，把 AI 分配给真实业务团队使用”。具体需求包括：公共服务软件系统需要现代化，但政府团队通常受制于遗留系统、审批流程和安全边界；文书、RFP、casework、deck 等办公任务高度重复，但又常涉及敏感材料；</p><p>预算来自 appropriated funds，必须能对应项目、部门和硬上限；组织有多级部门，不能只有一个全局管理员；安全团队和授权官员需要 ATO、IG、渗透测试、安全配置指南和审计证据；同时机构又希望获得和商业用户同频的新能力。换句话说，真需求是“在高信任门槛下获得商业级 AI 迭代速度”。</p><p>这对个人工作流也有启发：用户真正需要的不是一堆 Agent，而是能长期稳定接管工作流、不会失控、成本可见、过程可复盘的 Agent 系统。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">以下是从原文抽象出的“Agent 生产化治理 checklist”，原文没有逐条列出，这是基于其产品设计方法抽象而来。</p><ul class="points"><li>能力定义：这个 Agent 负责代码、文件、信息收集、报告、审批还是执行？对应 Claude Code / Claude Cowork 式分工，先区分工程型 Agent 与办公型 Agent。</li><li>运行环境：模型推理在哪里运行？敏感数据是否离开本地或受控环境？会话历史保存在哪里？</li><li>权限边界：Agent 可以连接哪些工具、读取哪些文件、调用哪些模型、执行哪些动作？</li><li>预算边界：是否有固定额度、硬上限、余额预警、按用户/模型/任务的消耗统计？</li><li>组织分配：是否支持按部门、项目、子 Agent 或工作流分配资源，而不是所有人共用一个大池子？</li><li>默认配置：是否能为不同场景设置默认模型、默认提示词、默认连接器、默认输出格式和禁用功能？</li><li>审计日志：是否记录所有管理动作、配置变化、关键执行结果，并保证不可随意篡改？</li><li>敏感操作审批：高风险动作是否需要二次确认或双人审批？</li><li>审计数据最小化：导出的审计数据是否只包含计量和元数据，避免搬运正文、代码、客户信息等敏感内容？</li><li>部署路径：是否能通过既有设备管理、脚本、CI/CD 或本地调度方式交付，而不是依赖人工配置。可复用 prompt：请把我要设计的 Agent 当作一个要进入政府或大型企业生产环境的系统来审查。请按能力定义、运行环境、权限边界、预算边界、组织分配、默认配置、审计日志、敏感操作审批、审计数据最小化、部署路径 10 个维度指出缺口，并给出最小可行改造方案。</li></ul></section>
+</main>
+</body>
+</html>

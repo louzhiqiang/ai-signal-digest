@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Who’s Afraid of Chinese Models?｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 12px; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-21.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · 模型能力 / 推理 / 评测</div>
+    <h1>Who’s Afraid of Chinese Models?</h1>
+    <div class="meta">Simon Willison · 2026-07-20T17:09:19+00:00 · 影响分 10</div>
+    <div class="actions"><a class="btn ghost" href="https://simonwillison.net/2026/Jul/20/afraid-of-chinese-models" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">作者借 Ben Thompson 的提案指出：美国如果想让开放模型更有效地与中国模型竞争，不应继续一边用未授权数据训练模型、一边禁止别人蒸馏自己的模型，而应在法律上明确训练数据采集属于合理使用，并禁止通过服务条款限制蒸馏，让模型能力进一步流向整个创新生态。</p></section><section class="block"><h2>2. 关键论据</h2><p class="lead">原文的关键论据有三层。</p><ul class="points"><li>第一，当前大模型实验室存在明显双标：它们训练模型时大量使用未授权数据，却在服务条款里禁止别人对自己的模型做 distillation，这在伦理和产业逻辑上都不一致。</li><li>第二，阻止蒸馏几乎不可行，因为蒸馏本质上只是反复查询 API，再用输出训练或改进其他模型；既然技术上很难禁止，不如通过政策承认并利用它。</li><li>第三，中国模型正在通过开放权重增强生态竞争力，例如阿里重新选择开放 Qwen</li><li>8 Max 权重，Ben 认为这可能受到习近平近期“鼓励开源、开放、协作和分享”讲话的影响。作者没有展开强论证，而是通过引用和评论表达：开放、蒸馏、权重释放，正在成为模型竞争的重要变量。</li></ul></section><section class="block"><h2>3. 方法论</h2><p class="lead">作者的思考方法不是只看单个模型跑分，而是把模型能力放进“法律—商业条款—技术可执行性—开源生态—国家竞争”的链条里观察。第一步，看规则是否自洽：实验室是否既享受开放数据红利，又试图封闭自己的输出。第二步，看限制是否可执行：如果 distillation 只是 API 查询，那么禁止条款可能更多是法律威慑，而非工程上真正可防。</p><ul class="points"><li>8 Max 可能与政策层面对开源、协作、分享的鼓励有关。对用户关注的 Agent 架构和 AI coding 来说，这提醒我们评估模型时不能只看模型本身，还要看它是否允许被组合、蒸馏、微调、部署、嵌入 harness，以及能否形成可持续工具链。</li></ul><p>第三步，看开放策略如何改变生态：开放权重不只是技术发布，也是吸引开发者、形成下游创新和标准影响力的战略。第四步，看政治与产业信号：阿里开放 Qwen</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">1. “Stopping distillation — which is literally just querying the API — is nearly impossible.” 中文解释：阻止蒸馏几乎不可能，因为蒸馏在操作层面就是查询 API。这句话点破了很多模型服务条款的脆弱性：它们试图禁止一种很难从普通使用中区分出来的行为。</p><ul class="points"><li>“The U.S. should go the other way and lean into a new copyright policy...” 中文解释：美国不应靠封堵来竞争，而应转向新的版权政策，把训练数据合理使用和模型知识再利用制度化。</li><li>“We should seize this rare, historic opportunity to encourage open source, openness, collaboration and sharing.” 中文解释：这句话强调开源、开放、协作、分享已经不只是开发者文化，而可能成为国家级 AI 竞争战略。</li><li>“Could add helmet? No.” “Maybe add small bell? no.” “Need maybe add small fish in basket? Not necessary.” 中文解释：这些来自 Qwen</li><li>8 Max 绘图推理轨迹的细节很有意思，因为它展示了模型在生成时会做微小设计取舍：哪些元素增加表达，哪些元素是噪音。对 Agent 设计也有启发：好的 agent loop 不只是增加步骤，而是知道什么时候不做。</li></ul></section><section class="block"><h2>5. 我的行动</h2><p class="lead">1. 在 deepweek 个人助手里增加一个“不要只加功能，要判断 Not necessary”的检查点。原文里模型推理轨迹多次否定额外元素，说明成熟系统需要克制。deepweek 每周任务排序时，不仅要问“还能做什么”，还要问“哪些看似有用但会分散本周一事”。</p><ul class="points"><li>在 AI Signal Radar 信息收集 agent 中，把“模型开放策略变化”设为高优先级信号，例如开放权重、蒸馏政策、API 条款变化、国家级开源政策表态。这类信息比单纯模型发布更能影响后续 Agent 工程生态。</li><li>为 930 前工作流全部 Agent 化建立一条原则：优先选可控、可组合、可本地或私有部署、许可友好的模型与工具，而不是只追最高跑分。因为未来 agent harness 的稳定性，取决于模型能不能被长期调用、微调、替换、蒸馏和嵌入工作流。</li><li>个人 IP 内容可写一篇选题：“为什么禁止蒸馏可能是 AI 时代的伪命题？”角度是从 AI 工程师视角解释 API、蒸馏、开源权重、模型生态竞争。</li><li>在自己的 Agent 架构设计中增加“政策与许可层”评估：每个模型接入前记录是否允许商用、是否允许蒸馏、是否开放权重、是否支持本地部署、是否有服务条款风险。</li></ul></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">第一性原理是：AI 能力的扩散来自信息流动，而不是单点封锁。模型训练本身就是从海量数据中吸收模式；蒸馏则是从一个模型的输出中再吸收模式；开源权重进一步降低了复制、改造和组合的门槛。只要能力可以通过输入输出被观察，它就很难被完全锁住。因此真正有效的竞争方式不是假设知识可以被永久圈住，而是让本国公司在数据合理使用、蒸馏、开源协作和商业化部署上拥有更低摩擦。</p><p>对 Agent 技术也是一样：一个强 agent 不是孤立模型，而是模型、工具、记忆、skill、loop、评估、权限和协作协议的组合系统。谁让这些组件更容易流动和复用，谁就更容易形成生态优势。</p></section><section class="block"><h2>7. 真需求</h2><p class="lead">表面问题是“美国是否应该害怕中国模型”，深层问题是“美国开放模型如何在生态效率上追上或超过中国模型”。更具体地说，真正需求不是单个实验室保护自己的 API 输出，而是整个国家和产业需要更快地产生可复用模型能力、更丰富的开放权重、更低风险的二次创新，以及更清晰的版权和蒸馏边界。</p><p>对开发者和企业来说，真需求也不是每次都追最新模型名，而是找到可持续的模型供应链：能否合法使用、能否稳定接入、能否被 agent harness 编排、能否沉淀为内部 skill、能否支持多 Agent 协作、能否在成本和性能之间不断优化。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">以下框架是基于原文方法抽象出来的，并非作者逐条给出的清单。模型生态影响力评估 checklist：</p><ul class="points"><li>开放性：是否开放权重？是否允许本地部署？是否允许商用？</li><li>蒸馏边界：服务条款是否禁止 distillation？禁止是否可执行？是否存在合规风险？</li><li>生态杠杆：这个模型是否容易被工具、agent harness、RAG、workflow、IDE、自动化脚本集成？</li><li>政策信号：是否受到国家、监管、产业政策鼓励或限制？</li><li>竞争位置：它相对 GPT、Claude、Gemini、Kimi、Qwen 等模型的优势是性能、成本、开放性还是生态？</li><li>下游创新：开放后是否能帮助更多团队构建 skill、多 Agent 系统、AI coding 工具或垂直应用？</li><li>噪音过滤：这是一次普通发布，还是会改变模型供应链、开发者选择和行业竞争格局？</li></ul><p>可复用 prompt：请评估以下 AI 模型或政策新闻的生态影响，不只看模型性能，而要从开放权重、蒸馏限制、API 可替代性、agent harness 集成难度、商业许可、政策信号、对开发者生态的长期影响七个维度分析，并给出是否值得进入 AI Signal Radar 正式库的判断。</p><p>Agent 设计保留原则：每次给 agent 增加能力前，先问三句：Could add this? 是否真的增加目标达成率？Maybe add this? 是否只是装饰性功能？Not necessary? 是否会增加 loop 噪音、成本或维护复杂度？</p></section>
+</main>
+</body>
+</html>
