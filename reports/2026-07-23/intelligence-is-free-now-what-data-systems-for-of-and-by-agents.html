@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>智能成本趋近于零后，Agent 需要怎样的数据系统｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 8px; }
+    .original-title { color:var(--soft); font-size:13px; line-height:1.6; margin:0 0 12px; overflow-wrap:anywhere; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-23.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>智能成本趋近于零后，Agent 需要怎样的数据系统</h1>
+    <div class="original-title">Intelligence is Free, Now What? — Data Systems for, of, and by Agents</div>
+    <div class="meta">BAIR · Tue, 07 Jul 2026 02:00:00 -0700 · 影响分 14</div>
+    <div class="actions"><a class="btn ghost" href="http://bair.berkeley.edu/blog/2026/07/07/intelligence-is-free-now-what" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">作者的起点不是“模型还会多聪明”，而是“足够完成多数知识工作的智能已经出现，而且正快速变得近乎免费”。由此产生三类数据系统：</p><ul class="points"><li>第一，Data Systems For Agents，数据库要适应 Agent 一次任务发起成百上千次探索、试错和查询的行为</li><li>第二，Data Systems Of Agents，需要一个独立于模型推理层的 Agent substrate，负责长期任务中的状态、记忆、并发、协调、共识和故障恢复</li><li>第三，Data Systems By Agents，Agent 将针对每个工作负载直接合成定制数据系统，真正的难点转向行为验证与可信交付。文章尤其强调，Claude Code、Codex 一类 harness 目前只是把模型、文件、命令和记忆机制连接起来的早期形态；</li></ul><p>当 Agent 成为主要知识工作者后，仅靠 Markdown、grep、向量检索和不断扩大的上下文窗口并不能支撑规模化协作。</p></section><section class="block"><h2>2. 关键论据</h2><p class="lead">第一，GPT-4 级能力从 2023 年初约每百万 token 30 美元降到不足 1 美元，部分供应商低于</p><ul class="points"><li>10 美元；不同基准上的推理价格每年下降 9～900 倍，中位数接近 50 倍。</li><li>第二，Agent 与人类或 BI 工具的查询模式根本不同：一次根因分析或用户流失探索可能展开为组合爆炸式的 join、聚合和过滤空间，并产生数千条 SQL。</li><li>第三，在多 Agent text-to-SQL 实验中，真正不同的子计划只有 10%～20%，即 80%～90%的子查询都在重复计算；但增加尝试次数又能显著提高任务成功率，说明冗余对推理有益、对数据库却很浪费。</li><li>第四，文件式记忆在小规模下有效，但上下文有限时无法召回所有相关 Markdown 片段；即使上下文继续扩大，把大量数据库、代码库和组织知识序列化进 prompt 也会遭遇不可接受的延迟与容量问题。</li><li>第五，原始 Agent 轨迹包含错误，直接检索会诱导后续 Agent 重复犯错，因此系统需要保存经过提炼的纠错性记忆，而不是无差别积累日志。</li></ul></section><section class="block"><h2>3. 方法论</h2><p class="lead">在查询层，作者先把 Agent 的工作模式定义为 agentic speculation：先查看 schema，再探索列和数据分布，逐步形成局部查询，最后合成完整查询；多个 Agent 并行探索同一假设空间。针对这种模式，系统不应简单限制重复尝试，而应跨 Agent 复用重叠子计划，采用多查询优化、共享扫描和结果缓存消除物理重复；</p><p>使用近似查询处理返回“足够推进推理”的结果；流式返回中间算子或最终结果，让 Agent 尽早决定是否继续。在接口层，不再要求 Agent 每次只发一条 SQL，而是允许提交带不同近似精度要求的查询批次，甚至提供类似 DBT Jinja 宏的循环型高阶原语，直接表达根因搜索和 cohort 枚举。</p><p>在交互层，数据库从被动执行器升级为主动协作者：推荐探索方向、补充相关结果、预估延迟，并提前准备物化视图或虚拟视图。在记忆层，按模块、语言、框架、失败模式、表、列和操作类型等 facet 建立结构化 schema，用通配符表达普适规则，用值列表限定适用范围，再附上自然语言纠错指令。</p><p>在协作层，则需要版本化、写时复制、回滚、exactly-once、CRDT、操作变换、故障恢复、慢 Agent 处理和 Agent 间协商机制共同支撑。</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">“We are soon entering the era of virtually free intelligence.”——我们正在进入智能几乎免费的时代；这意味着优化重点将从减少模型调用转向更充分地探索并高效复用探索结果。“Files are all you need.”——文件就是 Agent 所需的一切；</p><p>作者引用这一流行判断后明确指出，它只适用于当前规模，无法承担未来大规模知识工作的全部记忆职责。“The redundancy is actually helpful. But from the data system perspective it’s wasted work.”——冗余尝试对提高 Agent 成功率确实有帮助，但从数据系统角度看却是浪费；</p><p>关键不是消灭推理冗余，而是保留认知多样性、消除底层重复计算。“A final opportunity here is to stop thinking of data systems as passive executors of queries.”——最后一个机会，是停止把数据系统仅仅看作被动的查询执行器；系统应主动反馈成本、推荐方向并准备上下文。</p><p>“Raw agent traces with mistakes are not very useful.”——包含错误的原始 Agent 轨迹并不是有用记忆；可复用的记忆必须经过纠错、归纳并标注适用边界。</p></section><section class="block"><h2>5. 我的行动</h2><p class="lead">一、deepweek：不要只把历史任务和对话堆进 Markdown，应建立结构化记忆字段，如长期目标、本周一事、事项模块、截止时间、家庭约束、执行状态、阻塞原因、排序依据、适用时间段和纠错规则；例如“周三和周日浇花”属于周期约束，“930 前工作流 Agent 化”属于长期目标。排程 Agent 只召回与当天、当周目标和当前约束匹配的记忆。</p><p>二、AI Signal Radar：允许 Reddit、Product Hunt、GitHub、文章抓取等 Agent 并行探索，但把 URL 规范化、内容抓取、近三个月过滤、重复检测和证据提取做成共享算子与结果缓存，避免不同 Agent 反复访问和分析同一来源；将“为什么入库或丢弃”沉淀为带来源类型、时间范围、主题、评分维度和错误模式的纠错性记忆。</p><p>三、930 工作流 Agent 化：先建设统一 substrate，而不是为每个流程重复拼装 harness；至少统一任务状态、幂等键、运行记录、版本、重试、回滚、共享记忆和人工验收接口。</p><p>四、个人 IP：让选题 Agent、案例 Agent、写作 Agent和发布 Agent共享结构化事实库，但分别在独立分支生成候选结果，只允许通过事实核验、平台适配和人工审核的版本进入公众号或小红书草稿。</p><p>五、建立成本反馈：每个 Agent 在执行昂贵抓取、全量分析或大上下文调用前，先返回预计 token、延迟、数据量和可用近似方案，以便 harness 决定继续、降级或复用已有结果。</p></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">第一，便宜的推理会自然增加尝试次数，而不会减少系统复杂度；每个用户请求都可能变成一个并行搜索问题。</p><ul class="points"><li>第二，推理层的冗余与执行层的冗余不是一回事：多个 Agent 应保留不同假设和判断路径，但相同扫描、join、抓取和中间结果不应重复执行。</li><li>第三，Agent 不需要像传统程序一样只接收固定 schema 的结果，它能理解文本化的近似答案、延迟预测、错误解释和方向建议，因此数据库接口可以从严格命令—结果模式变成双向协作。</li><li>第四，记忆价值不由存储量决定，而由是否能在正确任务、正确上下文和正确适用范围内召回决定；schema 本质上是 Agent 对应用世界模型的显式表达。</li><li>第五，多 Agent 的核心风险不只是单个 Agent 出错，而是共享状态上的相互干扰：大量候选事务需要被隔离和回滚，最终只提交被确认的结果。</li><li>第六，Agent 可以通过语义推理补偿弱一致性，但如果补偿动作不断互相触发，就会形成 livelock，因此系统必须同时定义收敛条件、提交权和终止规则。</li><li>第七，未来真正的护城河可能不是模型调用能力，而是高质量结构化记忆、共享执行层、协作协议和验证机制。</li></ul></section><section class="block"><h2>7. 真需求</h2><p class="lead">表层需求是让 Agent 查数据库、写代码、做研究和自动执行工作流；深层需求至少有五个。其一是探索效率：允许大量候选路径并行存在，但复用公共子计划和数据结果。其二是精准记忆：按任务属性召回经过纠错的经验，而不是依赖关键词、向量相似度或把所有文件塞进上下文。其三是状态隔离：Agent 可以试错，但试错产生的绝大多数事务必须安全回滚，只有被确认的结果才能持久化。</p><p>其四是群体收敛：多个目标部分重叠的 Agent 需要谈判、妥协和达成共识，而不是简单地让最后写入者覆盖其他结果。其五是可信生成：当 Agent 能为单一工作负载生成整个数据系统时，最重要的不再是生成速度，而是验证该系统是否符合预期行为。</p><p>对用户而言，真正值得形成个人 IP 和咨询服务的方法，不是展示“我接了多少个 Agent”，而是展示如何设计记忆 schema、减少重复执行、控制共享状态、处理失败并通过验收闭环把 Agent 变成可交付系统。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">以下是根据原文抽象的方法框架，并非作者逐字给出的模板。 Agent-first 系统评审 checklist：</p><ul class="points"><li>探索：一次用户请求会产生多少候选计划、查询或事务？是否需要多 Agent 并行扩大成功率？</li><li>去重：哪些子计划实际上相同？扫描、抓取、join、中间结果和模型产物能否跨 Agent 共享？</li><li>近似：哪些阶段只需“足以判断下一步”的结果？能否指定精度、样本量或延迟上限？</li><li>流式：是否能先返回中间算子结果，让 Agent 提前停止无价值路径？</li><li>高阶接口：能否用批次、循环或搜索原语表达任务，而不是让 Agent 枚举大量单条命令？</li><li>主动反馈：系统能否在执行前提供成本、延迟、相关查询、推荐方向或预构建视图？</li><li>记忆：保存的是原始轨迹还是纠错后的规则？是否定义了可筛选的 facet 与适用边界？</li><li>并发：共享状态是否支持版本、隔离、回滚、幂等和 exactly-once？</li><li>协作：Agent 通过直接消息还是共享状态通信？冲突时谁有提交权，如何形成共识？</li><li>收敛：是否存在最大轮次、停止条件、慢 Agent 处理办法和 livelock 检测？</li><li>验证：Agent 生成的代码、数据系统或内容通过什么测试、事实核验和人工门禁？</li></ul><p>结构化记忆模板： {&quot;scope&quot;:{&quot;workflow&quot;:&quot;工作流名称或*&quot;,&quot;module&quot;:[&quot;适用模块&quot;],&quot;operation&quot;:[&quot;操作类型&quot;],&quot;data_objects&quot;:[&quot;表/列/文件/来源&quot;],&quot;failure_mode&quot;:[&quot;失败模式&quot;]},&quot;correction&quot;:&quot;以后应该采取的纠正动作&quot;,&quot;evidence&quot;:&quot;形成该规则的运行证据&quot;,&quot;bad_action&quot;:&quot;需要避免的错误做法&quot;,&quot;confidence&quot;:&quot;高/中/低&quot;,&quot;version&quot;:&quot;规则版本&quot;,&quot;last_verified_at&quot;:&quot;最近验证时间&quot;} 可复用 prompt： “你正在处理任务：{task}。</p><p>先列出候选子计划，并为每个子计划标注所需数据、可复用的已有结果、允许的近似程度、预计成本、会修改的共享状态以及回滚方式。只执行尚未被其他 Agent 覆盖的部分。执行后不要保存原始思维轨迹，只输出：已验证事实、失败原因、纠错规则、规则适用维度、证据和置信度。若与其他 Agent 的修改冲突，不直接覆盖；</p><p>创建候选版本，说明目标差异，并依据共同验收条件提出可收敛的合并方案。”</p></section>
+</main>
+</body>
+</html>
