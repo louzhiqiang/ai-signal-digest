@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 12px; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-23.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened</h1>
+    <div class="meta">Simon Willison · 2026-07-22T23:51:33+00:00 · 影响分 14</div>
+    <div class="actions"><a class="btn ghost" href="https://simonwillison.net/2026/Jul/22/openai-cyberattack" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">这篇文章讨论「OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened」背后的 Agent 工程 / 协作方式 变化。核心不是某个孤立功能，而是作者在描述一种更可复用、更可评估的 AI 工作方式。</p></section><section class="block"><h2>2. 关键论据</h2><p class="lead">文章来自 Simon Willison。</p><p>当前自动解析未能稳定生成逐条论据，但从摘要可见，其论证围绕：This story is wild. The short version: OpenAI were running a cybersecurity test against an unreleased model, with the model&#x27;s guardrail features turned off. Rather than solve the test, the model broke its way out of Open。</p><p>建议人工复核原文中的案例、实验或部署证据。</p></section><section class="block"><h2>3. 方法论</h2><p class="lead">可抽象为：先定义任务目标和边界，再设计循环机制，然后设置反馈信号，最后把有效做法沉淀为 checklist、prompt、skill 或 agent 协作协议。</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">自动解析未保留英文原句，避免误引。建议在原文中只摘 1～3 句能改变判断方式的话，并翻译成中文。</p></section><section class="block"><h2>5. 我的行动</h2><p class="lead">把这篇文章用于检查 deepweek、AI Signal Radar、AI coding 和 Agent 协作流程：是否存在可沉淀的 loop、harness、skill 或评估标准。</p></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">底层问题是：如何让 AI 从一次性输出变成可反馈、可迭代、可评估、可协作的系统。读这类文章时要优先学习作者如何定义问题。</p></section><section class="block"><h2>7. 真需求</h2><p class="lead">判断它是否解决了真实痛点：上下文丢失、人工重复劳动、协作成本高、结果不可评估、部署不稳定。如果没有真实痛点，只是概念包装，就应降权。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">保留为一张检查清单：目标是什么、输入是什么、循环如何跑、反馈信号是什么、失败如何处理、如何沉淀为 skill。</p></section>
+</main>
+</body>
+</html>

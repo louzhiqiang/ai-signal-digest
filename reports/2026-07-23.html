@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>AI Signal Digest｜2026-07-23</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f5f4ed; --surface:#faf9f5; --card:#ffffff; --text:#141413; --muted:#5e5d59;
+      --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --brand2:#d97757; --dark:#30302e;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .page { max-width: 760px; margin:0 auto; padding: 22px 14px 52px; }
+    header { padding: 18px 4px 20px; }
+    .eyebrow { display:inline-flex; padding: 7px 10px; border:1px solid var(--border); border-radius:999px; color:var(--brand); background:rgba(255,255,255,.45); font-size:12px; font-weight:600; }
+    h1 { font-family: Georgia, 'Times New Roman', serif; font-weight:500; font-size: clamp(34px, 9vw, 58px); line-height:1.05; margin:16px 0 10px; letter-spacing:-.03em; }
+    .subtitle { color:var(--muted); line-height:1.65; font-size:15px; margin:0; }
+    .metrics { display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin: 18px 0 8px; }
+    .metric { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:11px 8px; box-shadow:rgba(0,0,0,.04) 0 4px 18px; }
+    .metric span { display:block; color:var(--soft); font-size:11px; margin-bottom:5px; }
+    .metric strong { font-size:18px; }
+    .hero { margin: 18px 0 28px; padding:16px; border-radius:26px; background:#141413; color:#faf9f5; }
+    .hero h3 { margin:0 0 12px; font-size:20px; font-weight:700; }
+    .section-block { margin-top: 20px; }
+    .section-block summary { list-style:none; cursor:pointer; position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 0 12px; padding:12px 14px; border:1px solid var(--border); border-radius:16px; background:rgba(250,249,245,.94); backdrop-filter: blur(10px); font-size:17px; font-weight:700; }
+    .section-block summary::-webkit-details-marker { display:none; }
+    .section-block summary span { color:var(--brand); font-family:'JetBrains Mono', monospace; font-size:12px; background:#f0eee6; border-radius:999px; padding:4px 8px; }
+    .more-note { color:var(--soft); font-size:14px; text-align:center; padding:16px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:22px; padding:18px; margin-bottom:14px; box-shadow:rgba(0,0,0,.045) 0 8px 28px; }
+    .hero .card { background:#30302e; border-color:#3f3e3a; color:#faf9f5; }
+    .card-top { display:flex; gap:10px; align-items:center; margin-bottom:8px; }
+    .rank { flex:0 0 auto; min-width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:var(--brand); color:#fff; font-family:'JetBrains Mono', monospace; font-size:12px; }
+    .meta { display:flex; flex-wrap:wrap; gap:6px; color:var(--soft); font-size:11px; line-height:1.4; }
+    .hero .meta { color:#b0aea5; }
+    .meta span { padding:4px 7px; border-radius:999px; background:rgba(201,100,66,.08); }
+    .source { color:var(--brand); font-weight:600; }
+    h2 { font-family: Georgia, 'Times New Roman', serif; font-size:23px; line-height:1.18; font-weight:500; margin: 10px 0 12px; letter-spacing:-.015em; }
+    .badges { display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 12px; }
+    .badges span { font-size:12px; padding:6px 9px; border-radius:999px; background:#f5f4ed; border:1px solid var(--border); color:var(--muted); }
+    .hero .badges span { background:#242421; border-color:#4a4945; color:#e8e6dc; }
+    .score-grid { display:flex; flex-wrap:wrap; gap:6px; margin: 10px 0 12px; }
+    .score-grid span { font-family:'JetBrains Mono', monospace; font-size:10px; color:#4d4c48; background:#f0eee6; padding:5px 7px; border-radius:8px; }
+    .hero .score-grid span { background:#242421; color:#b0aea5; }
+    .body p { margin: 0 0 9px; color:var(--muted); font-size:15px; line-height:1.72; }
+    .hero .body p { color:#d7d4ca; }
+    .open { display:inline-flex; margin-top:8px; color:var(--brand); text-decoration:none; font-weight:650; font-size:14px; }
+    section { margin-top: 28px; }
+    footer { color:var(--soft); font-size:12px; text-align:center; padding:28px 0; }
+    @media (max-width: 430px) {
+      .page { padding-left:12px; padding-right:12px; }
+      .metrics { grid-template-columns: repeat(2,1fr); }
+      .card { border-radius:18px; padding:14px; }
+      h2 { font-size:20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="eyebrow">AI Signal Radar</div>
+      <h1>今日 AI 信号</h1>
+      <p class="subtitle">高影响内容优先，低噪音、带评分依据。适合手机快速浏览，完整细节保留在本地。</p>
+      <div class="metrics"><div class="metric"><span>抓取</span><strong>96</strong></div><div class="metric"><span>保留</span><strong>54</strong></div><div class="metric"><span>新增</span><strong></strong></div><div class="metric"><span>细读</span><strong>26</strong></div></div>
+    </header>
+    <section class="hero">
+      <h3>🔥 今日必读</h3>
+      
+    <article class="card">
+      <div class="card-top">
+        <div class="rank">#1</div>
+        <div class="meta">
+          <span class="source">BAIR</span>
+          <span>Blog / Research</span>
+          <span>Tue, 07 Jul 2026 02:00:00 -0700</span>
+        </div>
+      </div>
+      <h2>Intelligence is Free, Now What? &lt;br&gt; Data Systems for, of, and by Agents</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 14</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 3</span><span>跨行业 2</span><span>与你相关 3</span><span>未来 1</span><span>新颖 2</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/intelligence-is-free-now-what-br-data-systems-for-of-and-by-agents.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        <div class="rank">#2</div>
+        <div class="meta">
+          <span class="source">Simon Willison</span>
+          <span>Blog / Research</span>
+          <span>2026-07-21T12:54:02+00:00</span>
+        </div>
+      </div>
+      <h2>A Fireside Chat with Cat and Thariq from the Claude Code team</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 14</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 3</span><span>跨行业 1</span><span>与你相关 3</span><span>未来 2</span><span>新颖 2</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/a-fireside-chat-with-cat-and-thariq-from-the-claude-code-team.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        <div class="rank">#3</div>
+        <div class="meta">
+          <span class="source">Simon Willison</span>
+          <span>Blog / Research</span>
+          <span>2026-07-22T23:51:33+00:00</span>
+        </div>
+      </div>
+      <h2>OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 14</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 3</span><span>跨行业 2</span><span>与你相关 3</span><span>未来 1</span><span>新颖 2</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/openai-s-accidental-cyberattack-against-hugging-face-is-science-fiction-that-hap.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    </section>
+    <details class="section-block" open><summary>📚 Blog / Research / News <span>50</span></summary><div class="list">
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">BAIR</span>
+          <span>Blog / Research</span>
+          <span>Fri, 08 May 2026 02:00:00 -0700</span>
+        </div>
+      </div>
+      <h2>Adaptive Parallel Reasoning: The Next Paradigm in Efficient Inference Scaling</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 11</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 3</span><span>跨行业 1</span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/adaptive-parallel-reasoning-the-next-paradigm-in-efficient-inference-scaling.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>Jul 07, 2026</span>
+        </div>
+      </div>
+      <h2>Bringing Claude Code and Claude Cowork to government</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 11</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 2</span><span>与你相关 3</span><span>未来 1</span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>作者背景：Claude Blog 通常代表高信噪比作者/机构视角。</p><p>核心观点：Bringing Claude Code and Claude Cowork to government</p><p>第一性原理：作者通常在回答“为什么这个方向重要、为什么现在发生、为什么旧方法不够”。</p><p>金句：请优先看文章中对问题定义最明确的一句话。</p><p>对你有用：适合用来判断技术路线、产品选择和后续重点关注方向。</p></div>
+      <a class="open" href="2026-07-23/bringing-claude-code-and-claude-cowork-to-government.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">OpenAI</span>
+          <span>Blog / Research</span>
+          <span>Wed, 22 Jul 2026 05:30:00 GMT</span>
+        </div>
+      </div>
+      <h2>Introducing OpenAI Presence</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 11</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 2</span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/introducing-openai-presence.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">LilLog</span>
+          <span>Blog / Research</span>
+          <span>Sat, 04 Jul 2026 00:00:00 +0000</span>
+        </div>
+      </div>
+      <h2>Harness Engineering for Self-Improvement</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 10</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 3</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 2</span><span>证据 </span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/harness-engineering-for-self-improvement.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>May 19, 2026</span>
+        </div>
+      </div>
+      <h2>New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/new-in-claude-managed-agents-dreaming-outcomes-and-multiagent-orchestration.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>May 19, 2026</span>
+        </div>
+      </div>
+      <h2>New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/new-in-claude-managed-agents-self-hosted-sandboxes-and-mcp-tunnels.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>Jul 20, 2026</span>
+        </div>
+      </div>
+      <h2>Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 3</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/working-at-the-frontier-how-rakuten-builds-agents-overnight-with-claude-fable-5.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Google Research</span>
+          <span>Blog / Research</span>
+          <span>Wed, 22 Jul 2026 21:32:00 +0000</span>
+        </div>
+      </div>
+      <h2>SymptomAI: Towards a conversational AI agent for everyday symptom assessment</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 1</span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/symptomai-towards-a-conversational-ai-agent-for-everyday-symptom-assessment.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Interconnects</span>
+          <span>Blog / Research</span>
+          <span>Sun, 12 Jul 2026 16:47:42 GMT</span>
+        </div>
+      </div>
+      <h2>6 months to live for open models</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/6-months-to-live-for-open-models.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Microsoft Research AI</span>
+          <span>Blog / Research</span>
+          <span>Wed, 08 Jul 2026 16:00:00 +0000</span>
+        </div>
+      </div>
+      <h2>Flint: A visualization language for the AI era</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/flint-a-visualization-language-for-the-ai-era.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Microsoft Research AI</span>
+          <span>Blog / Research</span>
+          <span>Mon, 29 Jun 2026 21:14:22 +0000</span>
+        </div>
+      </div>
+      <h2>Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Microsoft Research AI</span>
+          <span>Blog / Research</span>
+          <span>Tue, 30 Jun 2026 16:50:02 +0000</span>
+        </div>
+      </div>
+      <h2>SkillOpt: Agent skills as trainable parameters</h2>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/skillopt-agent-skills-as-trainable-parameters.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>Apr 02, 2026</span>
+        </div>
+      </div>
+      <h2>Agent Harness Design: 3 Patterns for Harnessing Claude&#x27;s Intelligence</h2>
+      <div class="badges">
+        <span class="score">★★★★☆ · 8</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/agent-harness-design-3-patterns-for-harnessing-claude-s-intelligence.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>Jul 22, 2026</span>
+        </div>
+      </div>
+      <h2>Building verification loops in Claude Code with skills</h2>
+      <div class="badges">
+        <span class="score">★★★★☆ · 8</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>作者背景：Claude Blog 通常代表高信噪比作者/机构视角。</p><p>核心观点：Building verification loops in Claude Code with skills</p><p>第一性原理：作者通常在回答“为什么这个方向重要、为什么现在发生、为什么旧方法不够”。</p><p>金句：请优先看文章中对问题定义最明确的一句话。</p><p>对你有用：适合用来判断技术路线、产品选择和后续重点关注方向。</p></div>
+      <a class="open" href="2026-07-23/building-verification-loops-in-claude-code-with-skills.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>Apr 23, 2026</span>
+        </div>
+      </div>
+      <h2>Built-in memory for Claude Managed Agents</h2>
+      <div class="badges">
+        <span class="score">★★★★☆ · 8</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/built-in-memory-for-claude-managed-agents.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>Jun 18, 2026</span>
+        </div>
+      </div>
+      <h2>Claude Code now supports artifacts</h2>
+      <div class="badges">
+        <span class="score">★★★★☆ · 8</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>作者背景：Claude Blog 通常代表高信噪比作者/机构视角。</p><p>核心观点：Claude Code now supports artifacts</p><p>第一性原理：作者通常在回答“为什么这个方向重要、为什么现在发生、为什么旧方法不够”。</p><p>金句：请优先看文章中对问题定义最明确的一句话。</p><p>对你有用：适合用来判断技术路线、产品选择和后续重点关注方向。</p></div>
+      <a class="open" href="2026-07-23/claude-code-now-supports-artifacts.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>Apr 08, 2026</span>
+        </div>
+      </div>
+      <h2>Claude Managed Agents: get to production 10x faster</h2>
+      <div class="badges">
+        <span class="score">★★★★☆ · 8</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>影响领域：可能影响模型训练、推理、Agent、评测或生成式 AI 路线。</p><p>当前阶段：从实验验证到方法收敛之间，通常代表路线判断而非单点功能。</p><p>当前成果：文章/研究试图证明某个方法在特定条件下更优，或揭示能力边界。</p><p>未来走势：如果结果可复现，后续常见方向是工程化、规模化或被并入产品能力。</p><p>读法：先看结论，再看实验设置与限制，最后看作者是否给出可迁移启发。</p></div>
+      <a class="open" href="2026-07-23/claude-managed-agents-get-to-production-10x-faster.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Claude Blog</span>
+          <span>Blog / Research</span>
+          <span>Jul 16, 2026</span>
+        </div>
+      </div>
+      <h2>How Anthropic runs large-scale code migrations with Claude Code</h2>
+      <div class="badges">
+        <span class="score">★★★★☆ · 8</span>
+        <span>🔥 值得细读</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 2</span><span>噪音 </span></div>
+      <div class="body"><p>作者背景：Claude Blog 通常代表高信噪比作者/机构视角。</p><p>核心观点：How Anthropic runs large-scale code migrations with Claude Code</p><p>第一性原理：作者通常在回答“为什么这个方向重要、为什么现在发生、为什么旧方法不够”。</p><p>金句：请优先看文章中对问题定义最明确的一句话。</p><p>对你有用：适合用来判断技术路线、产品选择和后续重点关注方向。</p></div>
+      <a class="open" href="2026-07-23/how-anthropic-runs-large-scale-code-migrations-with-claude-code.html" target="_blank" rel="noopener">进入深读页 ↗</a>
+    </article>
+    <div class="more-note">还有 32 条已保存在完整数据中，微信版先折叠不刷屏。</div></div></details><details class="section-block" open><summary>🧩 GitHub / 开源技术 <span>1</span></summary><div class="list">
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>ggml-org/whisper.cpp</h2>
+      <div class="badges">
+        <span class="score">★★★☆☆ · 7</span>
+        <span>观察</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 2</span><span>未来 </span><span>新颖 1</span><span>证据 2</span><span>重点 </span><span>噪音 </span></div>
+      <div class="body"><p>描述：Port of OpenAI&#x27;s Whisper model in C/C++</p><p>star：163</p><p>语言：C++</p><p>场景：AI 应用、Agent、模型调用或提示工程相关。</p><p>效果：更可能直接影响开发效率、模型选型或调用链路。</p><p>趋势：短期热度较高，社区传播明显。</p></div>
+      <a class="open" href="https://github.com/ggml-org/whisper.cpp" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    </div></details>
+    <footer>Generated by AI Signal Radar · 2026-07-23</footer>
+  </main>
+</body>
+</html>

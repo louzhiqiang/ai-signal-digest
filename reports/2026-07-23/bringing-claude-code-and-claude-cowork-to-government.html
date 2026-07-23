@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bringing Claude Code and Claude Cowork to government｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 12px; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-23.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>Bringing Claude Code and Claude Cowork to government</h1>
+    <div class="meta">Claude Blog · Jul 07, 2026 · 影响分 11</div>
+    <div class="actions"><a class="btn ghost" href="https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">Anthropic 将 Claude Code 和 Claude Cowork 以公开测试版带入 Claude for Government Desktop：前者面向公共部门的软件开发与旧系统现代化，后者直接操作桌面文件，让工作人员委托 Claude 完成备忘录、RFP 审查、案件处理和演示文稿等任务。</p><p>文章真正强调的不是模型能力升级，而是围绕 AI 执行建立一套政府可接受的 harness：推理运行于 FedRAMP High 授权环境，对话历史保存在机构管理的本地设备；管理员能够分配席位和预算、限制模型和速率、设置连接范围与功能默认值；所有管理操作进入防篡改审计日志。</p><p>其产品思路是让 Agent 不只“能做事”，还要能被组织采购、授权、分配、约束、审计和持续更新。</p></section><section class="block"><h2>2. 关键论据</h2><p class="lead">第一，任务价值明确：Claude Code 用于建设和现代化公共服务依赖的软件系统；Claude Cowork 可直接处理桌面文件，承担备忘录编写、RFP 审查、案件工作和演示文稿制作。</p><ul class="points"><li>第二，数据边界明确：对话历史保存在机构管理的设备上，模型推理位于 FedRAMP High 授权环境。</li><li>第三，费用可控：部门既可购买标准席位，也可自定义带有消费额度和模型限制的席位层级；用量按固定增量购买，并设置不可突破的最高支出上限和余额消耗预警。</li><li>第四，组织结构可映射：部门管理员可向下属机构分配席位和预付额度，各下属机构仍能自行管理用户；SCIM 组映射可绑定速率限制、金额上限和允许使用的模型。</li><li>第五，监督证据可交付：管理操作写入哈希链审计日志，Anthropic 侧的敏感操作需双人批准；使用量导出只包含计量信息，避免为响应 ATO 或监察请求而搬运敏感内容；同时提供安全配置指南、正式变更通知和渗透测试摘要。</li></ul></section><section class="block"><h2>3. 方法论</h2><p class="lead">作者采用的是“能力进入工作流—边界进入配置—行为进入审计—成本进入预算—变更进入合规”的落地路径。第一步不是创造抽象聊天入口，而是让 Claude Code 进入代码系统、让 Claude Cowork 进入机构管理的桌面文件。</p><p>第二步把组织政策转化为机器可执行配置，包括 Agent 可以连接什么、开放哪些功能、使用哪些模型、速率和金额上限是多少，以及通过指令约束 Claude 如何与用户交互。第三步把不同机构层级映射为分层管理员和资源配额，使治理权可以下放但不失控。第四步用哈希链日志、双人审批、计量数据导出和渗透测试形成可验证的监督闭环。</p><p>第五步让政府客户与商业客户保持相同的能力更新节奏，但每次变化仍提供正式通知和安全材料。这是一套生产 Agent 工程方法，而不是多 Agent 协作方案；原文没有介绍 skill 编排、Agent 间通信或自主 loop 的具体实现，不应从相关文章标题推断正文已给出这些技术细节。</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">“Oversight by design.”——“监督能力必须从设计阶段内建。”它表明审计不能作为 Agent 上线后的补丁，而要成为 harness 的原生组成部分。</p><p>“Usage exports are metering data only so agencies can answer ATO and IG requests without moving sensitive material.”——“导出的使用数据只包含计量信息，使机构无需搬运敏感材料也能回应 ATO 和监察要求。</p><p>”这体现了数据最小化原则：治理需要证据，但证据不必包含完整业务内容。</p><p>“Conversation history is stored locally on the agency-managed device. Inference runs inside a FedRAMP High authorized environment.”——“对话历史保存在机构管理的本地设备上，推理运行在 FedRAMP High 授权环境中。</p><p>”这是把存储边界与推理边界分别说清楚的表达方式。“Today’s launch makes it easier for agencies to acquire, authorize, and allocate AI in pursuit of their missions.”——“此次发布让机构更容易围绕自身使命采购、授权和分配 AI。</p><p>”重点不只是让人使用 AI，而是让组织能够正式地拥有、批准并配置 AI。</p></section><section class="block"><h2>5. 我的行动</h2><p class="lead">1）deepweek：建立“全局目标—本周目标—今日任务”三层配置。全局层固化“930 前工作流全部 Agent 化”和“930 前创建个人 IP”；本周层配置“一周一事”；任务层再区分“今日上分”和“别掉血”。Agent 每次调整优先级时记录输入、排序理由、变更前后结果和人工确认，形成可追溯的决策日志。</p><ul class="points"><li>AI Signal Radar：把抓取、最近三个月过滤、影响力评分、去重、正式入库和网页发布拆成可计量阶段；每阶段记录候选数量、保留数量、模型、token 或费用、失败原因和丢弃理由。为每日任务设置硬预算上限和余额预警，防止信息源扩展后成本失控。</li><li>Agent 权限：默认只允许 deepweek 读取和建议，修改核心目标、删除事项、对外发送内容必须确认；Radar 可自动抓取和评分，但正式入库、微信推送、个人 IP 发布应按风险设置审批门槛。</li><li>930 Agent 化：为每条工作流补齐五项资产——任务入口、可访问资源、模型与成本限制、人工授权点、审计记录。没有这五项，即使已有 prompt，也不算完成生产化。</li><li>个人 IP：把内容生成 Agent 分为选题、证据整理、初稿、事实检查和发布五个阶段；发布记录只保留必要的来源、版本、审批人和时间，不在运营日志中复制客户或工作中的敏感全文。</li><li>近期可落地版本：先给两个 Agent 增加统一 run_id、配置版本、模型名、成本、输入来源摘要、输出路径、人工决策和错误状态，再考虑复杂的多 Agent 协作。</li></ul></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">从第一性原理看，模型能力只是 Agent 价值的一部分。组织真正购买的是“在明确边界内，把任务可靠地委托给 AI”的能力。要形成这种可委托性，至少需要回答六个基础问题：它能操作哪些对象；谁有权调用；最多消耗多少资源；哪些动作必须人工批准；发生了什么能否重建；版本变化后安全假设是否仍成立。</p><p>文章分别用桌面文件和代码访问、管理员与 SCIM 分组、硬支出上限、双人批准、哈希链日志、变更通知及渗透测试材料回答这些问题。更深一层，治理和执行不是两个独立系统：配置就是 Agent 的运行边界，预算就是资源边界，审计就是反馈与追责边界。因此，优质 harness 的作用不是增加更多提示词，而是把组织规则转译成 Agent 无法轻易绕过的技术约束。</p></section><section class="block"><h2>7. 真需求</h2><p class="lead">表层需求是写备忘录、审 RFP、处理案件、制作演示文稿和改造软件；深层需求则是让这些能力能够穿过政府采用新技术时的阻力。项目办公室需要把 AI 支出绑定到拨款并确保不超预算；部门管理员需要按现有机构层级分配能力；安全团队需要明确数据保存与推理位置；授权官员需要 ATO 支撑材料；监察方需要可核验记录；终端管理团队需要通过标准 MDM 部署；</p><p>采购方又不希望额外建立云服务商关系。Anthropic 的产品设计是在减少这些组织摩擦。对普通企业和个人 Agent 同样如此：用户最终想要的不是“多一个 Agent”，而是更少的重复劳动、更可控的成本、更清楚的责任边界，以及出错后能够定位和恢复的工作流。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">以下内容是根据原文方法抽象出的“Agent 生产化八层检查表”，并非文章直接给出的原始模板：</p><ul class="points"><li>任务层：Agent 负责哪些具体任务，成功产物是什么，哪些任务明确禁止？</li><li>资源层：可读取、修改和创建哪些文件、代码库、数据库及外部连接？</li><li>身份层：谁能使用，是否按团队或角色分组，子团队能否自行管理成员？</li><li>模型层：每类角色允许调用哪些模型，速率、上下文和功能如何限制？</li><li>成本层：单次、每日、团队总预算分别是多少，是否有硬上限和消耗预警？</li><li>配置层：全局默认、部门覆盖和用户偏好如何分层；配置是否有版本号？</li><li>监督层：哪些操作自动执行，哪些需要单人确认，哪些敏感操作需要双人批准？</li><li>证据层：是否记录配置变更、管理动作、运行计量、失败状态和审批结果；能否在不导出敏感正文的情况下完成审计？可复用运行 prompt（根据原文治理机制抽象）： “你是运行在受控工作区中的任务 Agent。开始前先输出：任务目标、计划访问的资源、拟使用的工具或模型、预计成本、可能产生的外部影响。只访问允许清单中的资源；不得绕过金额、速率、模型和连接限制。</li></ul><p>遇到删除、覆盖、对外发送、权限变更、预算超限或敏感数据迁移时立即停止，并请求人工批准。执行过程中为每个关键动作记录 run_id、时间、配置版本、动作类型、资源标识、结果和审批状态；审计记录默认只保存必要元数据，不复制敏感正文。完成后输出产物位置、实际成本、异常、未完成项和可回滚方式。</p><p>” Agent loop：预检任务与权限 → 读取分层配置 → 估算成本并检查硬上限 → 执行低风险步骤 → 在敏感动作前触发审批 → 验证产物 → 写入防篡改或至少追加式日志 → 汇报计量与异常 → 配置或模型变化后重新做安全验证。</p></section>
+</main>
+</body>
+</html>
