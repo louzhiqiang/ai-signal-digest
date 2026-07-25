@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Claude Opus 5：Anthropic 新一代模型亮相｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 8px; }
+    .original-title { color:var(--soft); font-size:13px; line-height:1.6; margin:0 0 12px; overflow-wrap:anywhere; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-25.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · 模型能力 / 推理 / 评测</div>
+    <h1>Claude Opus 5：Anthropic 新一代模型亮相</h1>
+    <div class="original-title">Introducing Claude Opus 5</div>
+    <div class="meta">Simon Willison · 2026-07-24T23:48:50+00:00 · 影响分 14</div>
+    <div class="actions"><a class="btn ghost" href="https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">原文对 Opus 5 的描述集中在三个方面：</p><ul class="points"><li>第一，它被 Anthropic 定位为更“深思熟虑且主动”的模型，接近 Claude Fable 5 的前沿智能，但价格只有一半</li><li>第二，它在 Artificial Analysis 榜单上暂时领先于包括 Fable 5 在内的其他模型</li><li>第三，它表现出较强的任务自驱能力。在一个机器零件建模任务中，模型无法直接查看图纸，却没有停留在“我看不到图片”的限制上，而是自行编写计算机视觉流水线，从原始像素中提取几何信息，再重建完整的 FreeCAD 三维模型。作者因此捕捉到一个重要信号：新模型的价值正在从“根据已有工具完成指令”，转向“发现缺口、创建中间工具、完成端到端目标”。</li></ul><p>不过，文章只是引用发布说明中的一个案例，不能据此断言 Opus 5 在所有任务上都具备同等程度的主动性。</p></section><section class="block"><h2>2. 关键论据</h2><p class="lead">原文提供了四类证据。其一，Anthropic 的产品定位：Opus 5 被描述为以 Opus</p><ul class="points"><li>8 相同价格提供接近 Fable 5 的前沿智能，并继续提供价格为基础模型两倍的 fast mode。其二，外部排名：作者指出 Opus 5 当前位于 Artificial Analysis 榜单首位，甚至超过 Fable 5。</li></ul><p>其三，任务案例：在不能直接查看机器零件图纸的前提下，它自主构建视觉处理管线，再生成 FreeCAD 模型，这是文章最能体现“主动工程能力”的证据。其四，网络安全测试：Opus 5 在发现漏洞方面明显增强，接近 Mythos 5，但没有接受如何利用漏洞的训练，因此在把漏洞转化为实际网络威胁方面仍明显落后。</p><p>证据结构同时包含正向能力和负向边界：模型更强，并不等于它在所有相关环节都更强；发现问题与实施攻击是两个不同能力层次。</p></section><section class="block"><h2>3. 方法论</h2><p class="lead">从原文可以抽象出一种评估方法。第一步，观察模型面对的真实约束，例如本案例中模型不能直接查看图纸。第二步，检查模型是否能识别约束造成的能力缺口，而不是简单报错。第三步，检查它是否能自主构造中间能力，例如编写计算机视觉流水线。第四步，检查最终产物是否真正完成目标，而不是只生成看起来合理的代码。</p><p>第五步，把相邻能力拆开评估：网络安全部分明确区分“发现漏洞”和“利用漏洞”，说明同一领域中的侦察、分析、执行可能由不同能力组成。第六步，结合成本和速度进行产品判断，因为文章同时提到基础价格与 fast mode 价格。这个方法比“模型是否聪明”更可操作：它测试模型能否在受限环境中补齐工作流，并验证每个阶段的实际结果。</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">“thoughtful and proactive model”——“深思熟虑且主动的模型”：这里的主动不是多说话，而是在任务受阻时主动寻找完成路径。</p><p>“the model was intentionally given no way to directly view the drawing”——“模型被刻意设置为无法直接查看图纸”：评估重点不是给模型最舒适的工具环境，而是观察它能否在能力受限时继续推进。</p><p>“writing its own computer vision pipeline to pull the geometry from the raw pixels”——“自行编写计算机视觉流水线，从原始像素中提取几何信息”：这句话具体展示了模型如何把缺失的视觉接口转化为一个可自行实现的工程步骤。</p><p>“finding vulnerabilities” 与 “exploitation of those vulnerabilities”——“发现漏洞”与“利用漏洞”：作者借此强调，不能把一个宽泛的能力标签当作完整能力，必须区分分析、判断和实际行动。</p></section><section class="block"><h2>5. 我的行动</h2><p class="lead">对 deepweek：不要只让助手从事项列表中排序，而要让它在缺少信息时主动识别缺口，例如本周目标、长期目标、家庭固定事项或时间约束缺失时，先生成“需要补齐的最小信息清单”，再给出“今日上分”和“别掉血”。</p><p>对 AI Signal Radar：把每日流程拆成原始抓取、近三个月过滤、影响力筛选、正式入库和丢弃原因五个阶段，并要求 Agent 在某个阶段缺少能力时主动创建中间步骤，例如先做标题去重、再做主题聚类、再做影响力评分，而不是直接输出摘要。</p><p>对 930 前工作流 Agent 化：优先寻找那些目前依赖人工补工具、补格式、补校验的环节，验证 Agent 能否自己生成查询、脚本、转换器或检查表。对个人 IP：把“模型如何从原始输入构造完整交付链路”做成内容实验，例如给 Agent 一个客户问题，观察它是否能从资料检索、方案拆解、案例验证一直推进到公众号、小红书内容草稿。</p><p>每个实验都记录输入约束、Agent 主动增加的中间步骤、最终产物和人工返工量。</p></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">原文案例可以还原为：目标是重建一个机器零件；直接观察图纸的能力被移除；模型仍然需要获得几何信息；于是它把“看图”重新定义为“从原始像素中提取几何”；再把视觉分析实现为自己的计算机视觉流水线；最后把结果转成 FreeCAD 模型。由此可见，工具不是固定菜单，而是可以围绕目标动态生成的中间能力。</p><p>这个原则也解释了网络安全能力的差异：发现漏洞只是完成信息分析的一部分，利用漏洞还需要额外的行动能力和风险转化链路。对于 Agent 架构，不能只问“它接了哪些工具”，还要问“目标完成需要哪些环节、哪些环节可以由 Agent 临时构造、每个环节如何验证”。</p></section><section class="block"><h2>7. 真需求</h2><p class="lead">原文中的“主动”具有明显的工程含义：模型发现自己无法直接查看图纸后，选择编写视觉处理管线，说明主动性必须服务于明确目标，而不是无边界地自行扩张任务。与此同时，网络安全段落表明能力边界和安全边界必须显式设计：模型可以更擅长发现漏洞，但不训练其利用漏洞，形成“分析能力增强、危险执行能力受限”的组合。</p><p>对应到用户的 Agent 工作，真正的需求是让系统能够自动补齐缺失步骤，但必须限定任务范围、工具权限、成本、输出格式和验收条件。deepweek 不能擅自替用户改变长期目标；AI Signal Radar 不能因为主动扩展检索就突破时间范围或重复入库；工作流 Agent 不能只生成代码，还要提供可审查的中间产物；</p><p>个人 IP 内容 Agent 不能把未经验证的模型判断直接包装成事实。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">以下是根据原文案例抽象出的可复用方法，不是文章逐字给出的模板。Prompt： “目标：完成【最终交付物】。已知输入：【输入内容】。明确约束：【不可直接使用的工具、信息或权限】。请先列出完成目标所必需的能力链路，并指出当前缺失的能力。对于可以在当前权限内补齐的缺口，请自行设计并执行最小中间步骤或工具。</p><ul class="points"><li>最终目标是否明确且可验收？</li><li>当前限制是否被显式列出？</li><li>Agent 是否识别了真正的能力缺口？</li><li>是否主动构造了必要的中间工具或步骤？</li><li>中间产物是否可独立检查？</li><li>是否区分“发现/分析”与“执行/利用”等不同能力？</li><li>是否验证了最终结果，而不是只检查代码生成成功？</li><li>是否记录成本、速度和人工返工量？</li><li>是否限制了权限与高风险行为？</li><li>是否能复用为 deepweek、Signal Radar 或内容生产中的稳定工作流？ 循环：定义目标 → 注入真实约束 → 识别能力缺口 → 自建最小中间能力 → 产出结果 → 分阶段验证 → 记录成本与风险 → 沉淀为可复用 Skill。</li></ul><p>每完成一个阶段，报告：输入、处理方式、产物、验证结果、剩余风险。不要把‘无法直接访问某工具’当作最终结论；先判断能否通过其他可用输入或自建处理流程获得等价信息。未经授权不得扩大目标、提升权限或执行高风险动作。” Checklist：</p></section>
+</main>
+</body>
+</html>
