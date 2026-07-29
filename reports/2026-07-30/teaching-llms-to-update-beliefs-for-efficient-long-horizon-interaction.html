@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>教会 LLM 更新信念以应对长程交互｜深读</title>
+  <style>
+    :root { --bg:#f5f4ed; --card:#fff; --text:#141413; --muted:#5e5d59; --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --dark:#30302e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:24px 15px 64px; }
+    .back { color:var(--brand); text-decoration:none; font-size:14px; font-weight:650; }
+    header { padding:20px 2px 18px; }
+    .pill { display:inline-flex; gap:6px; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid var(--border); color:var(--brand); background:rgba(255,255,255,.58); font-size:12px; font-weight:700; }
+    h1 { font-family:Georgia,'Times New Roman',serif; font-weight:500; letter-spacing:-.035em; line-height:1.08; font-size:clamp(32px,8vw,56px); margin:15px 0 8px; }
+    .original-title { color:var(--soft); font-size:13px; line-height:1.6; margin:0 0 12px; overflow-wrap:anywhere; }
+    .meta { color:var(--muted); line-height:1.65; font-size:14px; }
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 4px; }
+    .btn { display:inline-flex; text-decoration:none; border-radius:14px; padding:11px 14px; background:var(--brand); color:#fff; font-weight:700; font-size:14px; }
+    .ghost { background:#fff; color:var(--brand); border:1px solid var(--border); }
+    .block { background:var(--card); border:1px solid var(--border); border-radius:28px; padding:24px 21px; margin:18px 0; box-shadow:rgba(0,0,0,.045) 0 10px 32px; }
+    h2 { font-family:Georgia,'Times New Roman',serif; font-size:25px; line-height:1.15; font-weight:500; letter-spacing:-.025em; margin:0 0 15px; color:var(--text); }
+    p { margin:0 0 13px; color:var(--muted); line-height:1.9; font-size:16px; }
+    p.lead { color:#30302e; font-size:16.5px; line-height:1.85; background:#f5f4ed; border:1px solid var(--border); border-radius:18px; padding:13px 14px; margin-bottom:14px; }
+    ul.points { list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px; }
+    ul.points li { position:relative; margin:0; color:var(--muted); line-height:1.78; font-size:15.8px; background:#faf9f5; border:1px solid #f0eee6; border-radius:16px; padding:11px 12px 11px 34px; }
+    ul.points li::before { content:'•'; position:absolute; left:15px; top:10px; color:var(--brand); font-size:20px; line-height:1; }
+    .note { border-radius:24px; padding:17px; background:#141413; color:#faf9f5; margin:20px 0 22px; }
+    .note p { color:#d7d4ca; margin:0; font-size:15px; line-height:1.75; }
+    @media(max-width:430px) { main { padding-left:13px; padding-right:13px; } .block { padding:21px 17px; border-radius:24px; } h2 { font-size:23px; } p { font-size:15.8px; } p.lead { font-size:16px; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../2026-07-30.html">← 返回日报</a>
+  <header>
+    <div class="pill">🧠 深读页 · Agent 工程 / 协作方式</div>
+    <h1>教会 LLM 更新信念以应对长程交互</h1>
+    <div class="original-title">Teaching LLMs to Update Beliefs for Efficient Long-Horizon Interaction</div>
+    <div class="meta">BAIR · Sun, 26 Jul 2026 02:00:00 -0700 · 影响分 10</div>
+    <div class="actions"><a class="btn ghost" href="http://bair.berkeley.edu/blog/2026/07/26/abbel" target="_blank" rel="noopener">打开原文 ↗</a></div>
+  </header>
+  <div class="note"><p>这不是原文摘要，而是把文章先翻译成中文语义后，再拆成可复用的思考方式、方法论和行动线索。</p></div>
+  <section class="block"><h2>1. 核心观点</h2><p class="lead">作者认为，随着软件开发等任务延伸到数百乃至数千步，把全部交互历史持续放进上下文既不现实，也没有必要；但传统上下文压缩会把“执行任务”和“判断什么值得记住”混成一个难以学习的问题，导致模型即使经过强化学习，仍无法追平完整上下文模型。</p><p>ABBEL 的关键改造是引入信念瓶颈：Agent 根据上一轮信念、刚执行的动作和新观察，周期性地产生新的信念状态，后续行动主要依赖这个状态，而不是完整历史。训练时再单独评价信念里保留了什么信息，使“记忆更新”成为一个可监督、可优化的能力。通用评分方式是让当前模型同时充当编码器和解码器：它先把历史压进信念，再尝试仅根据信念重建最近观察；</p><p>重建得越准确，说明信念保留的决策信息越充分。其目标不是生成读起来顺畅的摘要，而是学习一种短小、可解释、足以支持后续决策的信息状态。</p></section><section class="block"><h2>2. 关键论据</h2><p class="lead">第一，Combination Lock 实验显示，普通上下文摘要模型虽然会随强化学习训练而进步，却始终无法弥合与完整上下文模型的差距，说明“模型会写摘要”不等于“模型会保留后续决策真正需要的信息”。加入利用领域知识的信念评分后，系统通过检查历史中的有效统计能否从信念中恢复，使学习效率接近甚至超过完整上下文模型。</p><ul class="points"><li>第二，在面向人机协作编码的 CollabBench 中，Agent 需要先向人提澄清问题，再提交函数并接受隐藏单元测试评分。采用通用的重建式信念评分后，ABBEL 将其与完整上下文模型之间的性能差距缩小约一半，同时比没有信念评分的摘要训练少用约一半训练步数，推理时峰值上下文长度也显著更低。</li><li>第三，在多目标问答中，对“峰值信念长度”施加惩罚，可以明显减少内存占用而只造成很小的性能损失；这与直接惩罚推理长度经常损伤能力形成对比。三个结果分别证明：信念评分能修复摘要的信息损失，领域指标可以进一步提升效率，而把记忆与推理解耦后，可以压缩记忆而不必粗暴压缩思考过程。</li></ul></section><section class="block"><h2>3. 方法论</h2><p class="lead">其状态更新可理解为：旧信念 b_t、动作 a_t、新观察 o_t 和任务提示共同生成新信念 b_{t+1}，随后 Agent 使用新信念继续行动。这里的信念不是完整日志的缩写，而是对当前任务状态、已知事实、约束条件、未解决问题和下一步依据的后验估计。评分有两条路线：一是通用重建评分，要求模型从新信念中恢复最近观察，以检验关键信息是否真正进入记忆；</p><p>二是领域知识评分，例如在编码任务中同时奖励更短的信念和更强的 Git 差异重建能力，或在猜词任务中检查关键历史统计能否恢复。摘要触发间隔为 K 时，总动作数 N 所带来的更新开销约为 O(N/K)，因此真实部署不必每轮都更新，可把 K 设在接近硬件高效上下文长度的位置。</p><p>该设计还把三个过去纠缠的问题拆开：推理负责决定怎么做，信念负责保存以后还要用什么，评分器负责检验是否记对。对 Agent harness 的启发是，记忆更新应成为独立、可观测、可评分的运行阶段，而不是在上下文快满时临时调用一句“请总结以上内容”。</p></section><section class="block"><h2>4. 金句摘录</h2><p class="lead">“Beliefs replace the full interaction history as the agent’s working context.”——信念状态取代完整交互历史，成为 Agent 的工作上下文；这点定义了 ABBEL 与普通摘要的根本区别。</p><p>“Making models self-summarize while completing a task increases the complexity of the learning problem.”——让模型一边完成任务一边自行总结，会增加学习问题的复杂度；摘要失败不能简单归因于上下文长度，而应看到任务策略与记忆策略被耦合训练。</p><p>“Explicit belief states as information bottlenecks for multi-step interaction.”——显式信念状态是多步交互中的信息瓶颈；瓶颈并非单纯限制容量，而是迫使系统选择对未来行动最有价值的信息。文章隐含的另一个重要判断是：与其惩罚模型的推理长度，不如约束峰值信念长度。</p><p>前者可能让模型少想，后者要求模型少记但记准，因此更有机会同时保住能力和降低成本。</p></section><section class="block"><h2>5. 我的行动</h2><p class="lead">一、deepweek：每次任务变化后，不再重写全部对话摘要，而是维护一份结构化信念，至少包含本周一事、长期目标关联、当前进度、关键约束、未解决阻塞、承诺事项、最近证据和下一步；更新后检查是否能从信念恢复用户刚刚新增或修改的事项，并对遗漏日期、优先级和排序理由进行扣分。这样“今日上分／别掉血”的生成只依赖当前信念和必要的外部日历，而不是反复读取全部历史。</p><p>二、AI Signal Radar：为每条候选信号维护信念状态，包括原始事实、发布时间、三个月过滤结果、影响评分依据、重复关系、证据强度、正式入库结论和丢弃原因。每轮抓取后，抽查能否从信念恢复原始标题、核心事实、链接和筛选理由；不能恢复就禁止进入正式库。跨日运行时只把高价值信念送入主 Agent，原始材料放在可查询的外部存储中。</p><p>三、930 前工作流 Agent 化：在 harness 中增加统一的 belief_update 和 belief_grade 阶段，记录每次更新前后差异、信念长度、事实恢复率、约束遗漏率和后续任务成功率。先从重复频繁、状态清晰的发布工作流试点，再扩展到信息收集、内容生产和事项管理。</p><p>四、个人 IP：每个选题维护“受众痛点—我的判断—真实案例—可验证证据—内容承诺—发布状态—反馈信号”的选题信念。公众号、小红书等不同发布 Agent 共享这份显式信念，而不是互相传递整段聊天记录；用户可直接修改其中的定位或边界，从而控制所有后续内容。</p><p>五、AI Coding：每次代码阶段完成后，让编码 Agent 从信念尝试恢复关键 Git 差异、架构决策、未通过测试和下一步计划；以恢复效果决定是否允许压缩旧上下文。</p></section><section class="block"><h2>6. 第一性原理</h2><p class="lead">第一，有限上下文本质上是信息分配问题：历史不断增长，而当前行动只能消费有限信息，因此系统必须选择性保留。</p><ul class="points"><li>第二，好的记忆不是语言质量最高的摘要，而是关于任务隐状态的充分统计量；如果两份摘要同样流畅，能让 Agent 更准确恢复关键观察并完成下一步的那份才更好。</li><li>第三，记忆压缩与推理压缩不是同一件事。限制推理长度可能直接减少解决问题所需的计算，限制信念长度则主要迫使系统提高信息密度。</li><li>第四，仅优化最终任务奖励时，模型很难判断失败来自错误行动还是错误记忆；给信念增加辅助奖励，可以缩短训练中的归因路径。</li><li>第五，自然语言信念虽然不如稠密向量紧凑，却具备可检查、可传递和可人工修改的优势，因此尤其适合人机协作和多 Agent 系统。</li><li>第六，单一记忆形式不足以支撑持续学习：上下文更像工作记忆，外部存储承担短期或长期检索，而测试时训练、适配器记忆、连续上下文乃至模型权重可以承载更压缩的技能。成熟架构应组合多种记忆，而不是把无限长上下文当成唯一方向。</li></ul></section><section class="block"><h2>7. 真需求</h2><p class="lead">ABBEL 对准的真实需求包括：长任务中避免上下文成本持续增长；在人类模拟数据稀缺、交互轨迹杂乱时提高训练效率；让人知道 Agent 当前相信什么；让多个 Agent 共享对任务状态的明确理解；让用户可以直接纠正记忆，而不必通过追加对话间接覆盖错误。它尤其适用于协作编码，因为需求澄清、架构约束、代码变化和隐藏测试结果会在长程互动中不断累积。但其边界也明确。</p><p>重建最近观察只是一种通用代理目标：某段内容可以被准确重建，却未必对未来决策有价值；反过来，某些长期约束虽然无法帮助逐字重建最近观察，却可能决定最终成败。因此实际系统应将重建评分与领域评分、任务成功率和事实一致性共同使用。文本信念也不适合完整表达人的外貌等非文本信息，更无法单独承载需要跨越大量会话积累的高度压缩技能。</p><p>外部向量记忆、检索系统、连续表征、适配器或权重更新仍然必要。文章还提醒，长上下文模型和高效注意力正在降低注意力成本，某些新架构需要到约十五万甚至四十五万 token 才到达注意力占一半计算量的权衡点；因此采用信念瓶颈的主要理由不能只是节省算力，还应包括学习效率、可解释性、可控性和多 Agent 通信质量。</p></section><section class="block"><h2>8. 硬核保留</h2><p class="lead">以下是基于原文方法抽象出的可复用框架，并非文章逐字提供。信念更新提示词： “你正在维护一个长程任务的显式信念状态。输入包括任务目标、上一轮信念、刚执行的动作和最新观察。请只保留会影响后续决策的信息，删除已失效或可从外部系统随时查询的细节，并明确标记不确定性与冲突。</p><ul class="points"><li>Agent 使用当前信念决定动作</li><li>工具执行动作并产生观察</li><li>独立的信念更新器生成后验信念</li><li>评分器从后验信念重建关键观察，并执行领域检查</li><li>未达阈值则根据遗漏项重新更新，而不是直接继续行动</li><li>达标后保存新信念，将原始日志归档到外部存储</li><li>到达 K 次动作、发生关键状态变化或上下文接近硬件高效上限时，再触发下一次更新。上线检查表： 是否把信念更新与任务推理解耦；是否保存每次信念差异；是否能追溯信念中的事实证据；是否检查日期、约束、失败结果和未决问题；是否针对具体领域配置评分器；是否避免只用摘要长度评价质量；是否允许用户直接修改信念；是否支持 Agent 间传递同一信念；</li></ul><p>输出：当前目标、已确认事实、关键约束、已完成动作及结果、未解决问题、风险与假设、下一步、证据引用。不得把推测写成事实；新观察与旧信念冲突时，保留冲突及判断依据。” 通用信念评分： 总分 = 事实重建率 × 30% + 决策充分性 × 25% + 约束保留率 × 20% + 一致性 × 10% + 可解释性 × 10% + 长度效率 × 5%。</p><p>其中，事实重建率检查能否从信念恢复最新观察中的关键事实；决策充分性检查另一个 Agent 能否只靠信念选出合理下一步；约束保留率检查目标、期限、禁止项和用户承诺是否遗漏；长度效率只在前述指标达标后奖励更短内容，避免为了短而丢信息。编码场景可额外加入 Git 差异恢复率、失败测试保留率和架构决策恢复率。运行循环：</p><p>是否把原始历史保存在可检索外部存储；是否用后续任务成功率验证评分与真实效果相关；是否分别监控峰值信念长度、峰值上下文长度、恢复准确率和任务完成率。</p></section>
+</main>
+</body>
+</html>
