@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>AI Signal Digest｜2026-08-04</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f5f4ed; --surface:#faf9f5; --card:#ffffff; --text:#141413; --muted:#5e5d59;
+      --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --brand2:#d97757; --dark:#30302e;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .page { max-width: 760px; margin:0 auto; padding: 22px 14px 52px; }
+    header { padding: 18px 4px 20px; }
+    .eyebrow { display:inline-flex; padding: 7px 10px; border:1px solid var(--border); border-radius:999px; color:var(--brand); background:rgba(255,255,255,.45); font-size:12px; font-weight:600; }
+    h1 { font-family: Georgia, 'Times New Roman', serif; font-weight:500; font-size: clamp(34px, 9vw, 58px); line-height:1.05; margin:16px 0 10px; letter-spacing:-.03em; }
+    .subtitle { color:var(--muted); line-height:1.65; font-size:15px; margin:0; }
+    .nav-links { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 0; }
+    .nav-links a { color:var(--brand); text-decoration:none; font-size:13px; font-weight:700; background:#fff; border:1px solid var(--border); border-radius:12px; padding:8px 10px; }
+    .metrics { display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin: 18px 0 8px; }
+    .metric { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:11px 8px; box-shadow:rgba(0,0,0,.04) 0 4px 18px; }
+    .metric span { display:block; color:var(--soft); font-size:11px; margin-bottom:5px; }
+    .metric strong { font-size:18px; }
+    .hero { margin: 18px 0 28px; padding:16px; border-radius:26px; background:#141413; color:#faf9f5; }
+    .hero h3 { margin:0 0 12px; font-size:20px; font-weight:700; }
+    .hero-empty { color:#d7d4ca; font-size:15px; line-height:1.75; padding:8px 2px 5px; }
+    .section-block { margin-top: 20px; }
+    .section-block summary { list-style:none; cursor:pointer; position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 0 12px; padding:12px 14px; border:1px solid var(--border); border-radius:16px; background:rgba(250,249,245,.94); backdrop-filter: blur(10px); font-size:17px; font-weight:700; }
+    .section-block summary::-webkit-details-marker { display:none; }
+    .section-block summary span { color:var(--brand); font-family:'JetBrains Mono', monospace; font-size:12px; background:#f0eee6; border-radius:999px; padding:4px 8px; }
+    .more-note { color:var(--soft); font-size:14px; text-align:center; padding:16px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:22px; padding:18px; margin-bottom:14px; box-shadow:rgba(0,0,0,.045) 0 8px 28px; }
+    .hero .card { background:#30302e; border-color:#3f3e3a; color:#faf9f5; }
+    .card-top { display:flex; gap:10px; align-items:center; margin-bottom:8px; }
+    .rank { flex:0 0 auto; min-width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:var(--brand); color:#fff; font-family:'JetBrains Mono', monospace; font-size:12px; }
+    .meta { display:flex; flex-wrap:wrap; gap:6px; color:var(--soft); font-size:11px; line-height:1.4; }
+    .hero .meta { color:#b0aea5; }
+    .meta span { padding:4px 7px; border-radius:999px; background:rgba(201,100,66,.08); }
+    .source { color:var(--brand); font-weight:600; }
+    h2 { font-family: Georgia, 'Times New Roman', serif; font-size:23px; line-height:1.22; font-weight:500; margin: 10px 0 7px; letter-spacing:-.015em; }
+    .original-title { color:var(--soft); font-size:12.5px; line-height:1.55; margin:0 0 12px; overflow-wrap:anywhere; }
+    .hero .original-title { color:#b0aea5; }
+    .badges { display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 12px; }
+    .badges span { font-size:12px; padding:6px 9px; border-radius:999px; background:#f5f4ed; border:1px solid var(--border); color:var(--muted); }
+    .hero .badges span { background:#242421; border-color:#4a4945; color:#e8e6dc; }
+    .score-grid { display:flex; flex-wrap:wrap; gap:6px; margin: 10px 0 12px; }
+    .score-grid span { font-family:'JetBrains Mono', monospace; font-size:10px; color:#4d4c48; background:#f0eee6; padding:5px 7px; border-radius:8px; }
+    .hero .score-grid span { background:#242421; color:#b0aea5; }
+    .body p { margin: 0 0 9px; color:var(--muted); font-size:15px; line-height:1.72; }
+    .hero .body p { color:#d7d4ca; }
+    .open { display:inline-flex; margin-top:8px; color:var(--brand); text-decoration:none; font-weight:650; font-size:14px; }
+    section { margin-top: 28px; }
+    footer { color:var(--soft); font-size:12px; text-align:center; padding:28px 0; }
+    @media (max-width: 430px) {
+      .page { padding-left:12px; padding-right:12px; }
+      .metrics { grid-template-columns: repeat(2,1fr); }
+      .card { border-radius:18px; padding:14px; }
+      h2 { font-size:20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="eyebrow">AI Signal Radar</div>
+      <h1>今日 AI 信号</h1>
+      <p class="subtitle">高影响内容优先，低噪音、带评分依据。适合手机快速浏览，完整细节保留在本地。</p>
+      <div class="nav-links"><a href="https://louzhiqiang.github.io/ai-signal-digest/must-read.html">🔥 历史必读</a></div>
+      <div class="metrics"><div class="metric"><span>抓取</span><strong>97</strong></div><div class="metric"><span>正式保留</span><strong></strong></div><div class="metric"><span>观察项</span><strong>8</strong></div><div class="metric"><span>细读</span><strong></strong></div></div>
+    </header>
+    <section class="hero">
+      <h3>🔥 今日必读</h3>
+      <div class="hero-empty">今天没有新增必读信号。<br>GitHub / Product Hunt 榜单观察不会补位成必读。</div>
+    </section>
+    <details class="section-block" open><summary>⚖️ 重大政策与合规 <span>1</span></summary><div class="list">
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>n0-computer/iroh</h2>
+      
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -3</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>重大政策</span><span>必读</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 2</span><span>噪音 -6</span></div>
+      <div class="body"><p>与你的关系：可能影响企业 Agent 的数据、内容或合规边界</p><p>建议动作：核对生效范围和日期，评估数据、内容标识、版权、安全与算力合规影响。</p><p>描述：IP addresses break, dial keys instead. A library that adds QUIC + NAT Traversal to your apps.</p><p>增长排名：Trending 候选池第 4 名</p><p>总 Star：12,035</p><p>GitHub Trending 近24小时新增：+68</p></div>
+      <a class="open" href="https://github.com/n0-computer/iroh" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    </div></details><details class="section-block" open><summary>🧩 值得关注的开源项目 <span>7</span></summary><div class="list">
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>从零复刻经典技术项目，深入掌握编程原理</h2>
+      <div class="original-title">codecrafters-io/build-your-own-x</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -7</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 </span><span>噪音 -8</span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Master programming by recreating your favorite technologies from scratch.</p><p>增长排名：Trending 候选池第 1 名</p><p>总 Star：535,642</p><p>GitHub Trending 近24小时新增：+1,068</p></div>
+      <a class="open" href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>donnemartin/system-design-primer</h2>
+      
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -5</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 </span><span>噪音 -6</span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.</p><p>增长排名：Trending 候选池第 2 名</p><p>总 Star：360,501</p><p>GitHub Trending 近24小时新增：+237</p></div>
+      <a class="open" href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>paperless-ngx：扫描、索引与归档文档的管理系统</h2>
+      <div class="original-title">paperless-ngx/paperless-ngx</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -5</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 </span><span>噪音 -6</span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：A community-supported supercharged document management system: scan, index and archive all your documents</p><p>增长排名：Trending 候选池第 3 名</p><p>总 Star：43,947</p><p>GitHub Trending 近24小时新增：+69</p></div>
+      <a class="open" href="https://github.com/paperless-ngx/paperless-ngx" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>面向黑客与安全测试的一站式工具合集</h2>
+      <div class="original-title">Z4nzu/hackingtool</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -5</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 </span><span>噪音 -6</span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：ALL IN ONE Hacking Tool For Hackers</p><p>增长排名：Trending 候选池第 6 名</p><p>总 Star：78,738</p><p>GitHub Trending 近24小时新增：+65</p></div>
+      <a class="open" href="https://github.com/Z4nzu/hackingtool" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>Jellyfin：自由开源的媒体服务器与 API</h2>
+      <div class="original-title">jellyfin/jellyfin</div>
+      <div class="badges">
+        <span class="score">★★☆☆☆ · 4</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 2</span><span>未来 </span><span>新颖 </span><span>证据 2</span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：The Free Software Media System - Server Backend &amp; API</p><p>增长排名：Trending 候选池第 7 名</p><p>总 Star：55,352</p><p>GitHub Trending 近24小时新增：+46</p></div>
+      <a class="open" href="https://github.com/jellyfin/jellyfin" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>nautechsystems/nautilus_trader</h2>
+      
+      <div class="badges">
+        <span class="score">★★☆☆☆ · 4</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 2</span><span>未来 </span><span>新颖 </span><span>证据 2</span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Production-grade Rust-native trading engine with deterministic event-driven architecture</p><p>增长排名：Trending 候选池第 8 名</p><p>总 Star：25,252</p><p>GitHub Trending 近24小时新增：+42</p></div>
+      <a class="open" href="https://github.com/nautechsystems/nautilus_trader" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>ccxt/ccxt</h2>
+      
+      <div class="badges">
+        <span class="score">★★☆☆☆ · 4</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 2</span><span>未来 </span><span>新颖 </span><span>证据 2</span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：A unified trading API with more than 100 crypto exchanges and prediction markets in JavaScript / TypeScript / Python /…</p><p>增长排名：Trending 候选池第 9 名</p><p>总 Star：43,523</p><p>GitHub Trending 近24小时新增：+39</p></div>
+      <a class="open" href="https://github.com/ccxt/ccxt" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    </div></details>
+    <footer>Generated by AI Signal Radar · 2026-08-04</footer>
+  </main>
+</body>
+</html>
