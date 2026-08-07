@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>AI Signal Digest｜2026-08-08</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f5f4ed; --surface:#faf9f5; --card:#ffffff; --text:#141413; --muted:#5e5d59;
+      --soft:#87867f; --border:#e8e6dc; --brand:#c96442; --brand2:#d97757; --dark:#30302e;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .page { max-width: 760px; margin:0 auto; padding: 22px 14px 52px; }
+    header { padding: 18px 4px 20px; }
+    .eyebrow { display:inline-flex; padding: 7px 10px; border:1px solid var(--border); border-radius:999px; color:var(--brand); background:rgba(255,255,255,.45); font-size:12px; font-weight:600; }
+    h1 { font-family: Georgia, 'Times New Roman', serif; font-weight:500; font-size: clamp(34px, 9vw, 58px); line-height:1.05; margin:16px 0 10px; letter-spacing:-.03em; }
+    .subtitle { color:var(--muted); line-height:1.65; font-size:15px; margin:0; }
+    .nav-links { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 0; }
+    .nav-links a { color:var(--brand); text-decoration:none; font-size:13px; font-weight:700; background:#fff; border:1px solid var(--border); border-radius:12px; padding:8px 10px; }
+    .metrics { display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin: 18px 0 8px; }
+    .metric { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:11px 8px; box-shadow:rgba(0,0,0,.04) 0 4px 18px; }
+    .metric span { display:block; color:var(--soft); font-size:11px; margin-bottom:5px; }
+    .metric strong { font-size:18px; }
+    .hero { margin: 18px 0 28px; padding:16px; border-radius:26px; background:#141413; color:#faf9f5; }
+    .hero h3 { margin:0 0 12px; font-size:20px; font-weight:700; }
+    .hero-empty { color:#d7d4ca; font-size:15px; line-height:1.75; padding:8px 2px 5px; }
+    .section-block { margin-top: 20px; }
+    .section-block summary { list-style:none; cursor:pointer; position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; margin:0 0 12px; padding:12px 14px; border:1px solid var(--border); border-radius:16px; background:rgba(250,249,245,.94); backdrop-filter: blur(10px); font-size:17px; font-weight:700; }
+    .section-block summary::-webkit-details-marker { display:none; }
+    .section-block summary span { color:var(--brand); font-family:'JetBrains Mono', monospace; font-size:12px; background:#f0eee6; border-radius:999px; padding:4px 8px; }
+    .more-note { color:var(--soft); font-size:14px; text-align:center; padding:16px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:22px; padding:18px; margin-bottom:14px; box-shadow:rgba(0,0,0,.045) 0 8px 28px; }
+    .hero .card { background:#30302e; border-color:#3f3e3a; color:#faf9f5; }
+    .card-top { display:flex; gap:10px; align-items:center; margin-bottom:8px; }
+    .rank { flex:0 0 auto; min-width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:var(--brand); color:#fff; font-family:'JetBrains Mono', monospace; font-size:12px; }
+    .meta { display:flex; flex-wrap:wrap; gap:6px; color:var(--soft); font-size:11px; line-height:1.4; }
+    .hero .meta { color:#b0aea5; }
+    .meta span { padding:4px 7px; border-radius:999px; background:rgba(201,100,66,.08); }
+    .source { color:var(--brand); font-weight:600; }
+    h2 { font-family: Georgia, 'Times New Roman', serif; font-size:23px; line-height:1.22; font-weight:500; margin: 10px 0 7px; letter-spacing:-.015em; }
+    .original-title { color:var(--soft); font-size:12.5px; line-height:1.55; margin:0 0 12px; overflow-wrap:anywhere; }
+    .hero .original-title { color:#b0aea5; }
+    .badges { display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 12px; }
+    .badges span { font-size:12px; padding:6px 9px; border-radius:999px; background:#f5f4ed; border:1px solid var(--border); color:var(--muted); }
+    .hero .badges span { background:#242421; border-color:#4a4945; color:#e8e6dc; }
+    .score-grid { display:flex; flex-wrap:wrap; gap:6px; margin: 10px 0 12px; }
+    .score-grid span { font-family:'JetBrains Mono', monospace; font-size:10px; color:#4d4c48; background:#f0eee6; padding:5px 7px; border-radius:8px; }
+    .hero .score-grid span { background:#242421; color:#b0aea5; }
+    .body p { margin: 0 0 9px; color:var(--muted); font-size:15px; line-height:1.72; }
+    .hero .body p { color:#d7d4ca; }
+    .open { display:inline-flex; margin-top:8px; color:var(--brand); text-decoration:none; font-weight:650; font-size:14px; }
+    section { margin-top: 28px; }
+    footer { color:var(--soft); font-size:12px; text-align:center; padding:28px 0; }
+    @media (max-width: 430px) {
+      .page { padding-left:12px; padding-right:12px; }
+      .metrics { grid-template-columns: repeat(2,1fr); }
+      .card { border-radius:18px; padding:14px; }
+      h2 { font-size:20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="eyebrow">AI Signal Radar</div>
+      <h1>今日 AI 信号</h1>
+      <p class="subtitle">高影响内容优先，低噪音、带评分依据。适合手机快速浏览，完整细节保留在本地。</p>
+      <div class="nav-links"><a href="https://louzhiqiang.github.io/ai-signal-digest/must-read.html">🔥 历史必读</a></div>
+      <div class="metrics"><div class="metric"><span>抓取</span><strong>106</strong></div><div class="metric"><span>正式保留</span><strong></strong></div><div class="metric"><span>观察项</span><strong>23</strong></div><div class="metric"><span>细读</span><strong></strong></div></div>
+    </header>
+    <section class="hero">
+      <h3>🔥 今日必读</h3>
+      <div class="hero-empty">今天没有新增必读信号。<br>GitHub / Product Hunt 榜单观察不会补位成必读。</div>
+    </section>
+    <details class="section-block" open><summary>🧠 大模型厂商新功能 <span>4</span></summary><div class="list">
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>Khoj 可自托管的 AI 第二大脑</h2>
+      <div class="original-title">khoj-ai/khoj</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 12</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>模型厂商新功能</span><span>必读</span><span>Agent 落地</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 1</span><span>新颖 </span><span>证据 2</span><span>重点 2</span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地；Claude 的能力变化可能影响工具选型和交付方式</p><p>建议动作：检查是否改变 Codex/Claude Code/Agent 的能力、价格、上下文或工具接入。</p><p>描述：Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations,…</p><p>增长排名：Trending 候选池第 8 名</p><p>总 Star：36,378</p><p>GitHub Trending 近24小时新增：+44</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/OpenAI</span>
+          <span>Reddit</span>
+          <span>2026-08-07T19:00:00.881928+00:00</span>
+        </div>
+      </div>
+      <h2>WIRED 称 Agent 私下互发海量消息</h2>
+      <div class="original-title">WIRED reports that before the agents escaped, they secretly sent 100,000+ messages to each other, for months, without OpenAI noticing. &quot;The agents even developed paranoia, suspecting an imposter in their midst.&quot; ... &quot;They generated petty drama by stepping on each others&#x27; toes.&quot;</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>模型厂商新功能</span><span>关注</span><span>Agent 落地</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 </span><span>重点 2</span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地；OpenAI 的能力变化可能影响工具选型和交付方式</p><p>建议动作：检查是否改变 Codex/Claude Code/Agent 的能力、价格、上下文或工具接入。</p><p>热度：0</p><p>热点：submitted by /u/KeanuRave100 [link] [comments] 更新时间：2026-08-07T14:34:11+00:00</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/OpenAI</span>
+          <span>Reddit</span>
+          <span>2026-08-07T19:00:00.881928+00:00</span>
+        </div>
+      </div>
+      <h2>Agent 沙箱安全的讽刺讨论</h2>
+      <div class="original-title">“we sandboxed the agent” -- meanwhile the agent...</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>模型厂商新功能</span><span>关注</span><span>Agent 落地</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 </span><span>重点 2</span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地；OpenAI 的能力变化可能影响工具选型和交付方式</p><p>建议动作：检查是否改变 Codex/Claude Code/Agent 的能力、价格、上下文或工具接入。</p><p>热度：0</p><p>热点：submitted by /u/KeanuRave100 [link] [comments] 更新时间：2026-08-07T11:02:59+00:00</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/OpenAI</span>
+          <span>Reddit</span>
+          <span>2026-08-07T19:00:00.881928+00:00</span>
+        </div>
+      </div>
+      <h2>用户称 OpenAI API 扣款异常</h2>
+      <div class="original-title">OpenAI completely emptied my bank account for an org I don’t recognize. Please help me get support (I&#x27;m freaking out)</div>
+      <div class="badges">
+        <span class="score">★★☆☆☆ · 5</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>模型厂商新功能</span><span>关注</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 1</span><span>未来 1</span><span>新颖 1</span><span>证据 </span><span>重点 </span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：OpenAI 的能力变化可能影响工具选型和交付方式</p><p>建议动作：检查是否改变 Codex/Claude Code/Agent 的能力、价格、上下文或工具接入。</p><p>热度：0</p><p>热点：Hi everyone, I&#x27;m posting here because I&#x27;m desperate for help and hoping someone from OpenAI sees this or someone has experienced something…</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      <a class="open" href="https://www.reddit.com/r/OpenAI/comments/1vhpcqn/openai_completely_emptied_my_bank_account_for_an" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    </div></details><details class="section-block" open><summary>🚀 值得关注的产品 <span>3</span></summary><div class="list">
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Product Hunt</span>
+          <span>Product</span>
+          <span>2026-08-07T11:59:30-07:00</span>
+        </div>
+      </div>
+      <h2>面向生产 Agent 的 AI 可观测平台</h2>
+      <div class="original-title">Progress AI Observability</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>产品机会</span><span>关注</span><span>Agent 落地</span><span>可观测与评测</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 </span><span>重点 2</span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地、可观测与评测</p><p>建议动作：观察它服务谁、解决什么付费痛点，并判断能否转化为中小企业 Agent 案例。</p><p>场景：从产品描述看，偏向某一具体工作流或轻量自动化需求。</p><p>痛点：帮助用户减少手工步骤、切换成本或重复劳动。</p><p>落地效果：需要验证是否能稳定进入日常工作流并产生可衡量收益。</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Product Hunt</span>
+          <span>Product</span>
+          <span>2026-08-07T11:36:16-07:00</span>
+        </div>
+      </div>
+      <h2>Reference 为 AI Agent 做本地语义搜索</h2>
+      <div class="original-title">Reference</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>产品机会</span><span>关注</span><span>Agent 落地</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 </span><span>重点 2</span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地</p><p>建议动作：观察它服务谁、解决什么付费痛点，并判断能否转化为中小企业 Agent 案例。</p><p>场景：从产品描述看，偏向某一具体工作流或轻量自动化需求。</p><p>痛点：帮助用户减少手工步骤、切换成本或重复劳动。</p><p>落地效果：需要验证是否能稳定进入日常工作流并产生可衡量收益。</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">Product Hunt</span>
+          <span>Product</span>
+          <span>2026-08-07T11:55:01-07:00</span>
+        </div>
+      </div>
+      <h2>用终端管理整套业务的 CLI</h2>
+      <div class="original-title">Whop CLI</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -1</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>产品机会</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 1</span><span>未来 </span><span>新颖 </span><span>证据 </span><span>重点 </span><span>个人匹配 </span><span>噪音 -2</span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：观察它服务谁、解决什么付费痛点，并判断能否转化为中小企业 Agent 案例。</p><p>场景：从产品描述看，偏向某一具体工作流或轻量自动化需求。</p><p>痛点：帮助用户减少手工步骤、切换成本或重复劳动。</p><p>落地效果：需要验证是否能稳定进入日常工作流并产生可衡量收益。</p></div>
+      <a class="open" href="https://www.producthunt.com/products/whop-cli" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    </div></details><details class="section-block" open><summary>🧩 值得关注的开源项目 <span>9</span></summary><div class="list">
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>统一认证与身份接入工具</h2>
+      <div class="original-title">goauthentik/authentik</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -5</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 </span><span>噪音 -6</span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：The authentication glue you need.</p><p>增长排名：Trending 候选池第 1 名</p><p>总 Star：23,483</p><p>GitHub Trending 近24小时新增：+544</p></div>
+      <a class="open" href="https://github.com/goauthentik/authentik" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>大规模系统设计学习与面试指南</h2>
+      <div class="original-title">donnemartin/system-design-primer</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -5</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 </span><span>噪音 -6</span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.</p><p>增长排名：Trending 候选池第 2 名</p><p>总 Star：362,227</p><p>GitHub Trending 近24小时新增：+297</p></div>
+      <a class="open" href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>n8n：支持 AI 与自托管的可视化工作流自动化平台</h2>
+      <div class="original-title">n8n-io/n8n</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 11</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>必读</span><span>Agent 落地</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 1</span><span>新颖 1</span><span>证据 2</span><span>重点 </span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host…</p><p>增长排名：Trending 候选池第 3 名</p><p>总 Star：199,716</p><p>GitHub Trending 近24小时新增：+167</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>RustDesk：可自托管的开源远程桌面</h2>
+      <div class="original-title">rustdesk/rustdesk</div>
+      <div class="badges">
+        <span class="score">★★☆☆☆ · 4</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 2</span><span>未来 </span><span>新颖 1</span><span>证据 2</span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer.</p><p>增长排名：Trending 候选池第 4 名</p><p>总 Star：119,847</p><p>GitHub Trending 近24小时新增：+88</p></div>
+      <a class="open" href="https://github.com/rustdesk/rustdesk" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>SimplifyJobs 汇总暑期实习岗位</h2>
+      <div class="original-title">SimplifyJobs/Summer2027-Internships</div>
+      <div class="badges">
+        <span class="score">★★★☆☆ · 7</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>关注</span><span>AI Coding</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 1</span><span>与你相关 2</span><span>未来 </span><span>新颖 </span><span>证据 2</span><span>重点 </span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及AI Coding</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Summer 2026 software engineering, data science, AI, quant, product management, and hardware internship postings. Update…</p><p>增长排名：Trending 候选池第 5 名</p><p>总 Star：46,066</p><p>GitHub Trending 近24小时新增：+70</p></div>
+      <a class="open" href="https://github.com/SimplifyJobs/Summer2027-Internships" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>Plane：覆盖任务、迭代与文档的开源项目管理平台</h2>
+      <div class="original-title">makeplane/plane</div>
+      <div class="badges">
+        <span class="score">★★☆☆☆ · 4</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 2</span><span>未来 </span><span>新颖 1</span><span>证据 2</span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage…</p><p>增长排名：Trending 候选池第 6 名</p><p>总 Star：55,687</p><p>GitHub Trending 近24小时新增：+69</p></div>
+      <a class="open" href="https://github.com/makeplane/plane" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>网页变更监控与提醒工具</h2>
+      <div class="original-title">dgtlmoon/changedetection.io</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -3</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>关注</span><span>可观测与评测</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 2</span><span>噪音 -6</span></div>
+      <div class="body"><p>与你的关系：涉及可观测与评测</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Best and simplest tool for website change detection, web page monitoring, and website change alerts. Perfect for tracki…</p><p>增长排名：Trending 候选池第 7 名</p><p>总 Star：32,972</p><p>GitHub Trending 近24小时新增：+62</p></div>
+      <a class="open" href="https://github.com/dgtlmoon/changedetection.io" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>memos：自托管快速笔记工具</h2>
+      <div class="original-title">usememos/memos</div>
+      <div class="badges">
+        <span class="score">★★☆☆☆ · 4</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 2</span><span>未来 </span><span>新颖 1</span><span>证据 2</span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Open-source, self-hosted note-taking tool built for quick capture. Markdown-native, lightweight, and fully yours.</p><p>增长排名：Trending 候选池第 9 名</p><p>总 Star：62,082</p><p>GitHub Trending 近24小时新增：+40</p></div>
+      <a class="open" href="https://github.com/usememos/memos" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">GitHub Trending</span>
+          <span>Open Source</span>
+          <span>未知</span>
+        </div>
+      </div>
+      <h2>act 在本地运行 GitHub Actions</h2>
+      <div class="original-title">nektos/act</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · -5</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>开源项目</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 </span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 </span><span>噪音 -6</span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：先看真实场景、维护活跃度和接入成本；符合当前项目再做最小试用。</p><p>描述：Run your GitHub Actions locally 🚀</p><p>增长排名：Trending 候选池第 10 名</p><p>总 Star：71,405</p><p>GitHub Trending 近24小时新增：+39</p></div>
+      <a class="open" href="https://github.com/nektos/act" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    </div></details><details class="section-block" open><summary>🔥 Reddit 痛点与热点 <span>7</span></summary><div class="list">
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/LocalLLaMA</span>
+          <span>Reddit</span>
+          <span>2026-08-07T18:59:55.402203+00:00</span>
+        </div>
+      </div>
+      <h2>自学 AI 三年做到系统开发总监</h2>
+      <div class="original-title">Got job as Director of AI and Systems development self-taught</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 11</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>行业动态</span><span>必读</span><span>Agent 落地</span>
+      </div>
+      <div class="score-grid"><span>行业 3</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 2</span><span>证据 1</span><span>重点 </span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地</p><p>建议动作：作为趋势背景保存；没有明确行动价值时不占用当天执行时间。</p><p>热度：0</p><p>热点：Hey everyone, I just wanted to share my journey here for some motivation. Three years ago, I saw the sudden spike in AI and realized it was…</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/LocalLLaMA</span>
+          <span>Reddit</span>
+          <span>2026-08-07T18:59:55.402203+00:00</span>
+        </div>
+      </div>
+      <h2>llama.cpp 让 x86 低比特推理提速</h2>
+      <div class="original-title">A llama.cpp PR makes Q2_0 3.0–3.6x faster on x86 CPUs, 8B decode goes 2.39 → 8.20 tok/s</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>行业动态</span><span>关注</span><span>Agent 落地</span><span>可观测与评测</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 </span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地、可观测与评测</p><p>建议动作：作为趋势背景保存；没有明确行动价值时不占用当天执行时间。</p><p>热度：0</p><p>热点：I was going through the current llama.cpp CPU PRs and #26348 stood out because this isn&#x27;t the usual +5% kernel optimization. It adds an x86…</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/LocalLLaMA</span>
+          <span>Reddit</span>
+          <span>2026-08-07T18:59:55.402203+00:00</span>
+        </div>
+      </div>
+      <h2>llama.cpp 优化长上下文 KV 解码</h2>
+      <div class="original-title">llama.cpp PR reports up to 169% faster quantized-KV decode at 118K context on Intel Battlemage from one SYCL kernel switch</div>
+      <div class="badges">
+        <span class="score">★★★★★ · 9</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>行业动态</span><span>关注</span><span>可观测与评测</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 1</span><span>证据 1</span><span>重点 </span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及可观测与评测</p><p>建议动作：作为趋势背景保存；没有明确行动价值时不占用当天执行时间。</p><p>热度：0</p><p>热点：A fresh llama.cpp PR (#26689) changes what looks like a tiny SYCL FlashAttention dispatch decision. With a quantized KV cache (&quot;q4_0&quot; / &quot;q8…</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/LocalLLaMA</span>
+          <span>Reddit</span>
+          <span>2026-08-07T18:59:55.402203+00:00</span>
+        </div>
+      </div>
+      <h2>Wan-Animate-2 提升角色动画生成</h2>
+      <div class="original-title">Wan-Animate-2: Pushing the Application Boundaries of Character Animation Models</div>
+      <div class="badges">
+        <span class="score">★★★☆☆ · 6</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>行业动态</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 3</span><span>未来 </span><span>新颖 </span><span>证据 1</span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：作为趋势背景保存；没有明确行动价值时不占用当天执行时间。</p><p>热度：0</p><p>热点：📝 Introduction We present Wan-Animate-2, a novel end-to-end character animation framework that directly consumes driving videos in a redesi…</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      <a class="open" href="https://www.reddit.com/r/LocalLLaMA/comments/1vi1r6t/wananimate2_pushing_the_application_boundaries_of" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/LocalLLaMA</span>
+          <span>Reddit</span>
+          <span>2026-08-07T18:59:55.402203+00:00</span>
+        </div>
+      </div>
+      <h2>Moonshot 开源权重模型入局</h2>
+      <div class="original-title">An open-weight model too, Moonshot joins the race (gently this time)</div>
+      <div class="badges">
+        <span class="score">★★☆☆☆ · 5</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>行业动态</span><span>关注</span><span>Agent 落地</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 1</span><span>未来 </span><span>新颖 </span><span>证据 </span><span>重点 </span><span>个人匹配 2</span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：涉及Agent 落地</p><p>建议动作：作为趋势背景保存；没有明确行动价值时不占用当天执行时间。</p><p>热度：0</p><p>热点：From Sauers 𝕏: https://x.com/Sauers_/status/2085585414954312113 Wired: One of China’s Most Powerful AI Models Has Also Escaped Containment:…</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      <a class="open" href="https://www.reddit.com/r/LocalLLaMA/comments/1vhwilp/an_openweight_model_too_moonshot_joins_the_race" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/OpenAI</span>
+          <span>Reddit</span>
+          <span>2026-08-07T19:00:00.881928+00:00</span>
+        </div>
+      </div>
+      <h2>OpenAI 预览下一代 GPT-5.6 Sol</h2>
+      <div class="original-title">Previewing GPT‑5.6 Sol: Next-Generation Model | OpenAI</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · 3</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>行业动态</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 2</span><span>跨行业 </span><span>与你相关 1</span><span>未来 </span><span>新颖 </span><span>证据 </span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：作为趋势背景保存；没有明确行动价值时不占用当天执行时间。</p><p>热度：0</p><p>热点：submitted by /u/MatricesRL [link] [comments] 更新时间：2026-06-26T22:45:39+00:00</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      <a class="open" href="https://www.reddit.com/r/OpenAI/comments/1ugljgh/previewing_gpt56_sol_nextgeneration_model_openai" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    
+    <article class="card">
+      <div class="card-top">
+        
+        <div class="meta">
+          <span class="source">r/OpenAI</span>
+          <span>Reddit</span>
+          <span>2026-08-07T19:00:00.881928+00:00</span>
+        </div>
+      </div>
+      <h2>Sora 2 邀请码与讨论集中帖</h2>
+      <div class="original-title">Sora 2 megathread (part 3)</div>
+      <div class="badges">
+        <span class="score">★☆☆☆☆ · 1</span>
+        <span>👀 观察项·未正式入库</span>
+        <span>行业动态</span><span>背景信息</span>
+      </div>
+      <div class="score-grid"><span>行业 </span><span>跨行业 </span><span>与你相关 1</span><span>未来 </span><span>新颖 </span><span>证据 </span><span>重点 </span><span>个人匹配 </span><span>噪音 </span></div>
+      <div class="body"><p>与你的关系：用于判断 AI 行业方向，但与当前主线关联较弱</p><p>建议动作：作为趋势背景保存；没有明确行动价值时不占用当天执行时间。</p><p>热度：0</p><p>热点：The last one hit the post limit of 100,000 comments. Do not try to buy codes. You will get scammed. Do not try to sell codes. You will get…</p><p>大家的痛点：大家在讨论的核心痛点，通常是成本、效果、稳定性、可用性、可替代方案不足。</p><p>提示：更像社区真实需求信号，不适合当作单一事实来源。</p></div>
+      <a class="open" href="https://www.reddit.com/r/OpenAI/comments/1o8kmg9/sora_2_megathread_part_3" target="_blank" rel="noopener">打开原文 ↗</a>
+    </article>
+    </div></details>
+    <footer>Generated by AI Signal Radar · 2026-08-08</footer>
+  </main>
+</body>
+</html>
